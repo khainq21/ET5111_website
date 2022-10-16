@@ -6,7 +6,7 @@ import connectDB from './config/connectDB';
 // import cors from 'cors';
 
 require('dotenv').config({
-    path: 'D:/Web20221/Nodejs/src/.env'
+    path: 'D:/Web20221/ET5111_website/Nodejs/src/.env'
 })
 
 let app = express();
