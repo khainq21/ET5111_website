@@ -8,8 +8,6 @@ import { changeLanguageApp } from '../../store/actions';
 
 class HomeHeader extends Component {
 
-    //<FormattedMessage id="homeheader.speciality" /> chuyển đổi ngôn ngữ bằng FormattedMessage redux
-    //config /store/reduces/appReducer.js
 
     changeLanguage = (language) => {
         this.props.changeLanguageAppRedux(language)
