@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './HomeFooter.scss';
+import {
+    MDBFooter,
+    MDBContainer,
+    MDBIcon,
+    MDBInput,
+    MDBCol,
+    MDBRow,
+    MDBBtn
+} from 'mdb-react-ui-kit';
 
 
 
@@ -10,55 +18,122 @@ class HomeFooter extends Component {
     render() {
 
         return (
-            <footer className="footer">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-5">
-                            <h5><i className="fa fa-road"></i> ACME CO INC.</h5>
-                            <div className="row">
-                                <div className="col-6">
-                                    <ul className="list-unstyled">
-                                        <li><a href="">Product</a></li>
-                                        <li><a href="">Benefits</a></li>
-                                        <li><a href="">Partners</a></li>
-                                        <li><a href="">Team</a></li>
-                                    </ul>
-                                </div>
-                                <div className="col-6">
-                                    <ul className="list-unstyled">
-                                        <li><a href="">Documentation</a></li>
-                                        <li><a href="">Support</a></li>
-                                        <li><a href="">Legal Terms</a></li>
-                                        <li><a href="">About</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <ul className="nav">
-                                <li className="nav-item"><a href="" className="nav-link pl-0"><i className="fa fa-facebook fa-lg"></i></a></li>
-                                <li className="nav-item"><a href="" className="nav-link"><i className="fa fa-twitter fa-lg"></i></a></li>
-                                <li className="nav-item"><a href="" className="nav-link"><i className="fa fa-github fa-lg"></i></a></li>
-                                <li className="nav-item"><a href="" className="nav-link"><i className="fa fa-instagram fa-lg"></i></a></li>
-                            </ul>
-                        </div>
-                        <div className="col-md-2">
-                            <h5 className="text-md-right">Contact Us</h5>
-                        </div>
-                        <div className="col-md-5">
-                            <form>
-                                <fieldset className="form-group">
-                                    <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Enter email" />
-                                </fieldset>
-                                <fieldset className="form-group">
-                                    <textarea className="form-control" id="exampleMessage" placeholder="Message"></textarea>
-                                </fieldset>
-                                <fieldset className="form-group text-xs-right">
-                                    <button type="button" className="btn btn-secondary-outline btn-lg">Send</button>
-                                </fieldset>
-                            </form>
-                        </div>
-                    </div>
+            <MDBFooter className='text-center' color='white' bgColor='info'>
+                <MDBContainer className='p-4'>
+                    <section className='mb-4'>
+                        <MDBBtn outline color="light" floating className='m-1' href='https://www.facebook.com/60Centuries' role='button'>
+                            <MDBIcon fab icon='facebook-f' />
+                        </MDBBtn>
+
+                        <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
+                            <MDBIcon fab icon='twitter' />
+                        </MDBBtn>
+
+                        <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
+                            <MDBIcon fab icon='google' />
+                        </MDBBtn>
+
+                        <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
+                            <MDBIcon fab icon='instagram' />
+                        </MDBBtn>
+
+                        <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
+                            <MDBIcon fab icon='linkedin-in' />
+                        </MDBBtn>
+
+                        <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
+                            <MDBIcon fab icon='github' />
+                        </MDBBtn>
+                    </section>
+
+                    <section className=''>
+                        <form action=''>
+                            <MDBRow className='d-flex justify-content-center'>
+                                <MDBCol size="auto">
+                                    <p className='pt-2'>
+                                        <strong>Sign up</strong>
+                                    </p>
+                                </MDBCol>
+
+                                <MDBCol md='5' start='12'>
+                                    <MDBInput contrast type='email' label='Email address' className='mb-4' />
+                                </MDBCol>
+
+                                <MDBCol size="auto">
+                                    <MDBBtn color='light' type='submit' className='mb-4'>
+                                        Subscribe
+                                    </MDBBtn>
+                                </MDBCol>
+                            </MDBRow>
+                        </form>
+                    </section>
+
+                    <section className='mb-4'>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum repellat quaerat
+                            voluptatibus placeat nam, commodi optio pariatur est quia magnam eum harum corrupti dicta, aliquam
+                            sequi voluptate quas.
+                        </p>
+                    </section>
+
+                    <section className=''>
+                        <MDBRow>
+                            <MDBCol lg='3' md='6' className='mb-4 mb-md-0'>
+                                <h5 className='text-uppercase'>Links</h5>
+
+                                <ul className='list-unstyled mb-0'>
+                                    <li>
+                                        <a href='#!' className='text-white'>
+                                            Link 1
+                                        </a>
+                                    </li>
+                                </ul>
+                            </MDBCol>
+
+                            <MDBCol lg='3' md='6' className='mb-4 mb-md-0'>
+                                <h5 className='text-uppercase'>Links</h5>
+
+                                <ul className='list-unstyled mb-0'>
+                                    <li>
+                                        <a href='#!' className='text-white'>
+                                            Link 1
+                                        </a>
+                                    </li>
+                                </ul>
+                            </MDBCol>
+
+                            <MDBCol lg='3' md='6' className='mb-4 mb-md-0'>
+                                <h5 className='text-uppercase'>Links</h5>
+
+                                <ul className='list-unstyled mb-0'>
+                                    <li>
+                                        <a href='#!' className='text-white'>
+                                            Link 1
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </MDBCol>
+
+                            <MDBCol lg='3' md='6' className='mb-4 mb-md-0'>
+                                <h5 className='text-uppercase'>Links</h5>
+
+                                <ul className='list-unstyled mb-0'>
+                                    <li>
+                                        <a href='#!' className='text-white'>
+                                            Link 1
+                                        </a>
+                                    </li>
+                                </ul>
+                            </MDBCol>
+                        </MDBRow>
+                    </section>
+                </MDBContainer>
+
+                <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
+                    © 2023 Copyright: KHAINQ2594
                 </div>
-            </footer>
+            </MDBFooter>
         );
     }
 
