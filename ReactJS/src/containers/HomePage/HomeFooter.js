@@ -56,7 +56,7 @@ class HomeFooter extends Component {
                                 </MDBCol>
 
                                 <MDBCol md='5' start='12'>
-                                    <MDBInput contrast type='email' label='Email address' className='mb-4' />
+                                    <MDBInput contrast type='email' className='mb-4' />
                                 </MDBCol>
 
                                 <MDBCol size="auto">
