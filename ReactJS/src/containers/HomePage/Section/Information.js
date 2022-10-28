@@ -12,7 +12,7 @@ class Information extends Component {
             <div className='section-share section-information'>
                 chung ta cua hien tai Waiting for you
                 <div>
-                    <iframe width="400" height="250" src="https://www.youtube.com/embed/CHw1b_1LVBA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="400" height="250" src="https://www.youtube.com/embed/CHw1b_1LVBA" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 </div>
             </div>
         );
