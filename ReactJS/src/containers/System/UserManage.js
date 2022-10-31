@@ -99,7 +99,7 @@ class UserManage extends Component {
 
     doEditUser = async (user) => {
         try {
-            let response = await editUserService(user)
+            let response = await editUserService(user)//call api, data tu modal con truyen sang.
             if (response && response.errCode === 0) {
                 this.setState({
                     isOpenModalEditlUser: false
