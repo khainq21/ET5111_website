@@ -49,5 +49,9 @@
         "role": "Vai trò",
         "image": "Ảnh đại diện",
         "save": "Lưu"
+    },
+    "homepage": {
+        "outstanding-doctor": "Bác sĩ nổi bật",
+        "more-infor": "Xem thêm"
     }
 }

@@ -21,9 +21,10 @@ class HomePage extends Component {
         let settings = {
             dots: false,
             isfinite: true,
+            // isfinite: false,
             speed: 500,
             slidesToShow: 4,
-            slidesToScroll: 2,
+            slidesToScroll: 1,
         }
 
         return (
