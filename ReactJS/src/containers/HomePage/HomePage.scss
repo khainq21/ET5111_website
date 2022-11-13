@@ -1,29 +1,29 @@
 .slick-prev {
-    border: 1px solid #d7d7d7 !important;
-    z-index: 1;
+    border   : 1px solid #d7d7d7 !important;
+    z-index  : 1;
     font-size: 40px !important;
-    left: -10 !important;
-    height: 40px !important;
-    width: 48px !important;
+    left     : -10 !important;
+    height   : 40px !important;
+    width    : 48px !important;
 
     &:hover {
-        border: #d7d7d7 !important;
+        border    : #d7d7d7 !important;
         background: #3a94de !important;
-        opacity: 0.6;
+        opacity   : 0.6;
     }
 
 }
 
 .slick-next {
     border: 1px solid #d7d7d7 !important;
-    right: 10 !important;
+    right : 10 !important;
     height: 40px !important;
-    width: 48px !important;
+    width : 48px !important;
 
     &:hover {
-        border: #d7d7d7 !important;
+        border    : #d7d7d7 !important;
         background: #3a94de !important;
-        opacity: 0.6;
+        opacity   : 0.6;
     }
 }
 
@@ -49,12 +49,12 @@
 
         .section-customize {
             .bg-image {
-                height: 150px;
-                width: 258px;
+                height             : 150px;
+                width              : 258px;
                 background-position: center center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-color: #eee;
+                background-repeat  : no-repeat;
+                background-size    : cover;
+                background-color   : #eee;
 
                 &.section-specialty {
                     background-image: url('../../assets/specialty/khoaxuongkhop.jpg');
@@ -66,8 +66,8 @@
 
                 &.section-outstanding-doctor {
                     // background-image: url('../../assets/outstanding-doctor/doctorhuyanh.jpg');
-                    width: 120px;
-                    height: 120px;
+                    width        : 120px;
+                    height       : 120px;
                     border-radius: 50%;
                 }
 
@@ -84,32 +84,32 @@
 
 
     .section-container {
-        margin: 0 99px;
-        display: flex;
+        margin        : 0 99px;
+        display       : flex;
         flex-direction: column;
 
         .section-header {
-            height: 60px;
+            height     : 60px;
             // border: 1px solid green;
-            margin-top: 20px;
+            margin-top : 20px;
             padding-top: 5px;
 
             .title-section {
-                font-size: 20px;
+                font-size  : 20px;
                 font-weight: 600;
             }
 
             .btn-section {
-                float: right;
-                padding: 10px 15px;
-                border: none;
-                outline: none;
-                display: flex;
+                float         : right;
+                padding       : 10px 15px;
+                border        : none;
+                outline       : none;
+                display       : flex;
                 text-transform: uppercase;
 
                 &:hover {
-                    cursor: pointer;
-                    color: #fff;
+                    cursor    : pointer;
+                    color     : #fff;
                     background: #3a94de;
                 }
             }
@@ -121,17 +121,18 @@
 
 .section-outstanding-doctor {
     .outder-bg {
-        display: flex;
+        display        : flex;
         justify-content: center;
-        margin-bottom: 10px;
+        margin-bottom  : 10px;
 
     }
 
     .section-customize {
         padding: 5px;
+        cursor : pointer;
 
         .customize-boder {
-            border: 1px solid #3a94de;
+            border : 1px solid #3a94de;
             padding: 20px;
         }
     }

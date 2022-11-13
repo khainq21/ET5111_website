@@ -1,5 +1,5 @@
 {
-  "name": "react-app-hoi-dan-it",
+  "name": "react-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -62,5 +62,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-select": "^5.0.1"
   }
 }

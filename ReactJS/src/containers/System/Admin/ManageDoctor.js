@@ -3,11 +3,11 @@ import { FormattedMessage } from 'react-intl';
 import *as actions from '../../../store/actions';
 import { connect } from 'react-redux';
 import './ManageDoctor.scss';
-import { LANGUAGES, } from '../../../utils';
+import { CRUD_ACTIONS, LANGUAGES, } from '../../../utils';
 import MarkdownIt from 'markdown-it';
 import MdEditor from 'react-markdown-editor-lite';
 import 'react-markdown-editor-lite/lib/index.css';
-
+import { getDetailInforDoctor } from '../../../services/userService';
 import Select from 'react-select';
 
 // const options = [
@@ -26,6 +26,7 @@ class ManageDoctor extends Component {
             selectedOption: '',
             description: '',
             listDoctors: [],
+            hasOldData: false,//kiem tra state save or update
         }
     }
 
@@ -75,17 +76,36 @@ class ManageDoctor extends Component {
     }
 
     handleSaveContentMarkdown = () => {
+        let { hasOldData } = this.state
         this.props.saveDetailDoctor({
             contentHTML: this.state.contentHTML,
             contentMarkdown: this.state.contentMarkdown,
             description: this.state.description,
-            doctorId: this.state.selectedOption.value
+            doctorId: this.state.selectedOption.value,
+            action: hasOldData === true ? CRUD_ACTIONS.EDIT : CRUD_ACTIONS.CREATE,
         })
     }
 
-    handleChange = selectedOption => {
+    handleChangeSelect = async (selectedOption) => {
         this.setState({ selectedOption })
-        // console.log(`Option selected:`, this.state.selectedOption)
+        let res = await getDetailInforDoctor(selectedOption.value)
+        if (res && res.errCode === 0 && res.data && res.data.Markdown) {
+            let markdown = res.data.Markdown
+            this.setState({
+                contentHTML: markdown.contentHTML,
+                contentMarkdown: markdown.contentMarkdown,
+                description: markdown.description,
+                hasOldData: true,
+            })
+        } else {
+            this.setState({
+                contentHTML: '',
+                contentMarkdown: '',
+                description: '',
+                hasOldData: false,
+            })
+        }
+        console.log(`Option selected:`, res)
     };
 
     handleOnChangeDesc = (event) => {
@@ -96,6 +116,9 @@ class ManageDoctor extends Component {
 
 
     render() {
+
+        let { hasOldData } = this.state
+
         return (
             <div className='manage-doctor-container'>
                 <div className='manage-doctor-title'>
@@ -107,7 +130,7 @@ class ManageDoctor extends Component {
                         <Select
                             className=''
                             value={this.state.selectedOption}
-                            onChange={this.handleChange}
+                            onChange={this.handleChangeSelect}
                             options={this.state.listDoctors}
                         />
                     </div>
@@ -126,13 +149,17 @@ class ManageDoctor extends Component {
                     <MdEditor style={{ height: '500px' }}
                         renderHTML={text => mdParser.render(text)}
                         onChange={this.handleEditorChange}
+                        value={this.state.contentMarkdown}
                     />
                 </div>
                 <div>
-                    <button className='save-content-doctor'
+                    <button className={hasOldData === true ? 'save-content-doctor' : 'create-content-doctor'}
                         onClick={() => this.handleSaveContentMarkdown()}
                     >
-                        Lưu thông tin
+                        {hasOldData == true ?
+                            <span>Lưu thông tin</span> : <span>Tạo thông tin</span>
+                        }
+
                     </button>
                 </div>
             </div>
@@ -151,7 +178,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchAllDoctors: (id) => dispatch(actions.fetchAllDoctors()),
+        fetchAllDoctors: () => dispatch(actions.fetchAllDoctors()),
         saveDetailDoctor: (data) => dispatch(actions.saveDetailDoctor(data)),
 
     };

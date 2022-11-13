@@ -95,7 +95,7 @@ class UserRedux extends Component {
         let data = event.target.files
         let file = data[0]
         if (file) {
-            let base64 = await CommonUtils.getBase64(file)// doc file anh sang dang base64(decode)
+            let base64 = await CommonUtils.getBase64(file)// doc file anh sang dang base64
             let objectUrl = URL.createObjectURL(file)// tao dang url de hien thi
             this.setState({
                 previewImgURL: objectUrl,
@@ -176,7 +176,7 @@ class UserRedux extends Component {
     handleEditUserFromParent = (user) => {
         let imageBase64 = ''
         if (user.image) {
-            imageBase64 = new Buffer(user.image, 'base64').toString('binary')
+            imageBase64 = new Buffer(user.image, 'base64').toString('binary')// convert image qua base64
         }
         this.setState({
             email: user.email,

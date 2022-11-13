@@ -1,64 +1,64 @@
 .home-header-container {
-    height: 60px;
-    width: 100%;
-    padding: 0 40px;
-    position: sticky;
+    height          : 60px;
+    width           : 100%;
+    padding         : 0 40px;
+    position        : sticky;
     background-color: #67d0f3;
-    top: 0;
-    z-index: 10;
+    top             : 0;
+    z-index         : 10;
 
 
     .home-deader-content {
-        width: 100%;
-        height: 100%;
+        width  : 100%;
+        height : 100%;
         display: flex;
 
         .left-content {
-            width: 20%;
+            width      : 20%;
             align-items: center;
-            display: flex;
+            display    : flex;
 
             .header-logo {
-                height: 100%;
-                width: 100%;
-                cursor: pointer;
-                transform: scale(0.5, 0.5);
+                height     : 100%;
+                width      : 100%;
+                cursor     : pointer;
+                transform  : scale(0.5, 0.5);
                 margin-left: -45px;
 
             }
 
             i {
                 font-size: 20px;
-                color: rgb(48, 79, 112);
-                cursor: pointer;
+                color    : rgb(48, 79, 112);
+                cursor   : pointer;
             }
         }
 
         .center-content {
-            width: 55%;
-            display: flex;
+            width          : 55%;
+            display        : flex;
             justify-content: space-between;
-            align-items: center;
+            align-items    : center;
 
             .child-content {
                 .subs-title {
                     font-weight: 400;
-                    font-size: 12px;
+                    font-size  : 12px;
                 }
             }
         }
 
         .right-content {
-            width: 25%;
-            display: flex;
+            width          : 25%;
+            display        : flex;
             justify-content: flex-end;
-            align-items: center;
+            align-items    : center;
 
             .support {
                 padding-right: 50px;
-                display: flex;
-                align-items: center;
-                cursor: pointer;
+                display      : flex;
+                align-items  : center;
+                cursor       : pointer;
 
                 i {
                     margin-right: 5px;
@@ -66,7 +66,7 @@
             }
 
             .language-vi {
-                cursor: pointer;
+                cursor : pointer;
                 opacity: 0.5;
 
                 &.active {
@@ -84,8 +84,8 @@
             }
 
             .language-en {
-                margin: 0 10px;
-                cursor: pointer;
+                margin : 0 10px;
+                cursor : pointer;
                 opacity: 0.5;
 
                 &.active {
@@ -107,56 +107,56 @@
 }
 
 .home-header-banner {
-    background-image: url(../../assets/header-background.jpg);
-    height: 485px;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image   : url(../../assets/header-background.jpg);
+    height             : 485px;
+    background-repeat  : no-repeat;
+    background-size    : cover;
     background-position: center;
-    display: flex;
-    flex-direction: column;
+    display            : flex;
+    flex-direction     : column;
 
 
     .content-up {
         background-image: linear-gradient(rgba(126, 126, 126, 0.25), rgba(255, 255, 255, 0.1));
-        height: 60%;
-        padding-top: 15px;
+        height          : 60%;
+        padding-top     : 15px;
 
         .tiltle1 {
-            text-align: center;
-            font-size: 30px;
-            text-shadow: 1px 1px 1px #333;
+            text-align   : center;
+            font-size    : 30px;
+            text-shadow  : 1px 1px 1px #333;
             margin-bottom: 15px;
-            color: white;
-            margin-top: 30px;
+            color        : white;
+            margin-top   : 30px;
         }
 
         .tiltle2 {
-            text-align: center;
-            font-size: 30px;
-            text-shadow: 1px 1px 1px #333;
-            color: white;
+            text-align   : center;
+            font-size    : 30px;
+            text-shadow  : 1px 1px 1px #333;
+            color        : white;
             margin-bottom: 55px;
         }
 
         .search {
-            width: fit-content;
-            display: flex;
+            width          : fit-content;
+            display        : flex;
             justify-content: center;
-            align-items: center;
-            margin: auto;
-            border-radius: 25px;
-            background: rgb(85, 185, 227);
+            align-items    : center;
+            margin         : auto;
+            border-radius  : 25px;
+            background     : rgb(85, 185, 227);
 
             i {
                 margin: 0 5px;
             }
 
             input {
-                height: 40px;
-                width: 360px;
+                height    : 40px;
+                width     : 360px;
                 background: transparent;
-                border: none;
-                outline: none;
+                border    : none;
+                outline   : none;
 
             }
         }
@@ -165,41 +165,41 @@
 
     .content-down {
         background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
-        height: 40%;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        padding-bottom: 30px;
+        height          : 40%;
+        display         : flex;
+        align-items     : flex-end;
+        justify-content : center;
+        padding-bottom  : 30px;
 
         .options {
 
-            text-align: center;
-            display: flex;
-            gap: 50px;
+            text-align     : center;
+            display        : flex;
+            gap            : 50px;
             justify-content: center;
 
             .option-child {
                 width: 100px;
 
                 .icon-child {
-                    background: white;
-                    width: 50px;
-                    height: 50px;
-                    padding: 15px;
+                    background   : white;
+                    width        : 50px;
+                    height       : 50px;
+                    padding      : 15px;
                     border-radius: 38%;
-                    text-align: center;
-                    margin: 0 auto;
+                    text-align   : center;
+                    margin       : 0 auto;
 
                     i {
-                        color: #49bce2;
+                        color    : #49bce2;
                         font-size: 20px;
                     }
                 }
 
                 .text-child {
-                    font-size: 17px;
+                    font-size  : 17px;
                     font-weight: 530;
-                    cursor: pointer;
+                    cursor     : pointer;
 
                     &:hover {
                         color: #49bce2;
