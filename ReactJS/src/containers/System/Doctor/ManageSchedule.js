@@ -4,11 +4,11 @@ import './ManageSchedule.scss';
 import { FormattedMessage } from 'react-intl';
 import Select from 'react-select';
 import *as actions from '../../../store/actions';
-import { dateFormat, LANGUAGES, } from '../../../utils';
+import { LANGUAGES, } from '../../../utils';
 import DatePicker from '../../../components/Input/DatePicker'; // da custom date picker
 import { toast } from 'react-toastify';
 import _ from 'lodash';
-import moment from 'moment';
+import { saveBulkScheduleDoctor } from '../../../services/userService';
 
 
 class ManageSchedule extends Component {
@@ -82,7 +82,7 @@ class ManageSchedule extends Component {
         let { rangeTime } = this.state
         if (rangeTime && rangeTime.length > 0) {
             rangeTime = rangeTime.map(item => {
-                if (item.id == time.id) item.isSelected = !item.isSelected
+                if (item.id === time.id) item.isSelected = !item.isSelected
                 return item
             })
             this.setState({
@@ -91,33 +91,47 @@ class ManageSchedule extends Component {
         }
     }
 
-    handleSaveSchedule = () => {
+    handleSaveSchedule = async () => {
         let { rangeTime, selectedDoctor, currentDate } = this.state
         let result = []
 
         if (!currentDate) {
             toast.error("Invalid date!")
+            return
         }
         if (selectedDoctor && _.isEmpty(selectedDoctor)) {
             toast.error("Invalid selected doctor!")
+            return
         }
-        let formatedDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER)
+        // let formatedDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER)
+        let formatedDate = new Date(currentDate).getTime()
         if (rangeTime && rangeTime.length > 0) {
             let selectedTime = rangeTime.filter(item => item.isSelected === true)
             if (selectedTime && selectedTime.length > 0) {
-                selectedTime.map(time => {
+                selectedTime.map((schedule, index) => {
                     let object = {}
                     object.doctorId = selectedDoctor.value
                     object.date = formatedDate
-                    object.time = time.keyMap
+                    object.timeType = schedule.keyMap
                     result.push(object)
                 })
             } else {
                 toast.error("Invalid selected time!")
                 return
             }
-            console.log('check result', result)
         }
+        let res = await saveBulkScheduleDoctor({
+            arrSchedule: result,
+            doctorId: selectedDoctor.value,
+            formatedDate: formatedDate
+        })
+        if (res && res.errCode === 0) {
+            toast.success("Save schedule succeed!")
+        } else {
+            toast.error("Error Save bulkSchedule")
+            console.log('Error Save bulkSchedule', res)
+        }
+
     }
 
 
@@ -126,6 +140,7 @@ class ManageSchedule extends Component {
 
         let { rangeTime, } = this.state
         let { language } = this.props
+        let yesterday = new Date(new Date().setDate(new Date().getDate() - 1))// lay min date tu hom qua
 
         return (
             <div className='manage-schedule-container'>
@@ -149,7 +164,7 @@ class ManageSchedule extends Component {
                                 className=" form-control"
                                 onChange={this.handleOnChangeDatePicker}
                                 value={this.state.currentDate}
-                                minDate={new Date()}// lấy ngày từ hiện tại 
+                                minDate={yesterday}// lấy ngày từ hiện tại 
                             />
                         </div>
                         <div className='pick-hour-container col-12'>
