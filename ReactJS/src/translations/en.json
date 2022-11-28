@@ -69,6 +69,29 @@
             "notify": "No doctor scheduled for today. Please choose another time.",
             "choose": "Choose ",
             "book-free": " and booking (free)"
+        },
+        "extra-doctor-infor": {
+            "text-address": "ADDERSS OF EXAMINATION",
+            "price": "EXAMINATION PRICE: ",
+            "detail-price": "Examination price: ",
+            "detail": "See detail",
+            "payment": "The patient can pay the cost in the form of: ",
+            "hide-price": "Hide list price"
+        }
+    },
+    "admin": {
+        "manage-doctor": {
+            "title": "Create information doctors",
+            "select-doctor": "Select doctor",
+            "intro": "Information:",
+            "save": "Save",
+            "create": "Create",
+            "price": "Price",
+            "payment": "Payment",
+            "province": "Province",
+            "nameClinic": "Clinic's name",
+            "addressClinic": "Clinic's address",
+            "note": "Note"
         }
     }
 }
