@@ -15,6 +15,8 @@ module.exports = (sequelize, DataTypes) => {
                 { foreignKey: 'timeType', targetKey: 'keyMap', as: 'timeTypeData' })
             /* timeType col schedule, col allcode:->khi muốn lấy timeType sẽ map qua allcode
             ở cột keymap trả lại data ở allcode có tên timeTypeData */
+
+            Schedule.belongsTo(models.User, { foreignKey: 'doctorId', targetKey: 'id', as: 'doctorData' })
         }
     };
     Schedule.init({

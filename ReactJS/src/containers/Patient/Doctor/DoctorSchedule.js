@@ -108,6 +108,7 @@ class DoctorSchedule extends Component {
     render() {
 
         let { allDays, allAvalableTime, isOpenModalBooking, dataScheduleTimeModal } = this.state
+        //dataScheduleTimeModal->DoctorSchedule->ProfileDoctor(datatime)
         let { language } = this.props
 
         return (

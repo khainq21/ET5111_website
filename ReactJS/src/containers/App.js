@@ -56,15 +56,8 @@ class App extends Component {
                                 </Switch>
                             </CustomScrollbars>
                         </div>
-
-                        {/* <ToastContainer
-                            className="toast-container" toastClassName="toast-item" bodyClassName="toast-item-body"
-                            autoClose={4000} hideProgressBar={true} pauseOnHover={false} position="top-center"
-                            pauseOnFocusLoss={true} closeOnClick={false} draggable={false}
-                            closeButton={<CustomToastCloseButton />}
-                        /> */}
                         <ToastContainer
-                            position="top-center"
+                            position="bottom-right"
                             autoClose={3000}
                             hideProgressBar={false}
                             newestOnTop={false}
