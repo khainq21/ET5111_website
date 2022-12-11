@@ -144,6 +144,7 @@ class ManageDoctor extends Component {
     handleSaveContentMarkdown = () => {
         let { hasOldData } = this.state
         this.props.saveDetailDoctor({
+            //save in table markdown
             contentHTML: this.state.contentHTML,
             contentMarkdown: this.state.contentMarkdown,
             description: this.state.description,

@@ -176,7 +176,7 @@ class UserRedux extends Component {
     handleEditUserFromParent = (user) => {
         let imageBase64 = ''
         if (user.image) {
-            imageBase64 = new Buffer(user.image, 'base64').toString('binary')// convert image qua base64
+            imageBase64 = new Buffer(user.image, 'base64').toString('binary')// convert image qua String.
         }
         this.setState({
             email: user.email,

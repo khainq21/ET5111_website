@@ -2,6 +2,7 @@ import actionTypes from './actionTypes';
 import {
     getAllCodeService, createNewUserService, getAllUsers,
     deleteUserService, editUserService, getTopDoctorHomeService, getAllDoctors, saveDetailDoctorService
+    , getAllSpecialties, editSpecialtyService,
 } from '../../services/userService';
 import { toast } from 'react-toastify';
 
@@ -328,4 +329,53 @@ export const fetchRequireDoctorInforFailed = () => ({
     type: actionTypes.FETCH_REQUIRED_DOCTOR_INFOR_FAILED
 })
 
+export const getAllSpecialty = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllSpecialties()
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_SPECIALTY_SUCCESS,
+                    dataSpecialty: res.data
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_SPECIALTY_FAILED
+                })
+            }
+        } catch (e) {
+            console.log('FETCH_ALL_SPECIALTY_FAILED', e)
+            dispatch({
+                type: actionTypes.FETCH_ALL_SPECIALTY_FAILED
+            })
+        }
+    }
+}
+
+export const editSpecialty = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await editSpecialtyService(data) // call api
+            if (res && res.errCode === 0) {
+                toast.success('Update specialty succeed!')
+                dispatch(editSpecialtySuccess())
+                dispatch(getAllSpecialty())// cap nhat lai danh sach sau khi xoa
+            } else {
+                dispatch(editSpecialtyFailed())
+                toast.error('Edit specialty failed!')
+            }
+        } catch (e) {
+            dispatch(editUsersFailed())
+            console.log('err edit specialty: ', e)
+        }
+    }
+}
+
+export const editSpecialtySuccess = () => ({
+    type: actionTypes.EDIT_SPECIALTY_SUCCESS
+})
+
+export const editSpecialtyFailed = () => ({
+    type: actionTypes.EDIT_SPECIALTY_FAILED
+})
 //start->doing->end

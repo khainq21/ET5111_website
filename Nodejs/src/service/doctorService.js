@@ -339,6 +339,7 @@ let getProfileDoctorById = (inputId) => {
                 //convert ảnh buffer->base64
                 if (data && data.image) {
                     // data.image = new Buffer(data.image, 'base64').toString('binary')
+                    //blob ->base64(string)
                     data.image = Buffer.from(data.image, 'base64').toString('binary')
                 }
                 if (!data) {
