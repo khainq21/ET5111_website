@@ -2,7 +2,7 @@ import actionTypes from './actionTypes';
 import {
     getAllCodeService, createNewUserService, getAllUsers,
     deleteUserService, editUserService, getTopDoctorHomeService, getAllDoctors, saveDetailDoctorService
-    , getAllSpecialties, editSpecialtyService,
+    , getAllSpecialties, editSpecialtyService, getAllClinic,
 } from '../../services/userService';
 import { toast } from 'react-toastify';
 
@@ -302,16 +302,19 @@ export const getRequireDoctorInfor = () => {
             let resPayment = await getAllCodeService('PAYMENT')
             let resProvince = await getAllCodeService('PROVINCE')
             let resSpecialty = await getAllSpecialties()
+            let resClinic = await getAllClinic()
 
             if (resPrice && resPrice.errCode === 0
                 && resPayment && resPayment.errCode === 0
                 && resProvince && resProvince.errCode === 0
-                && resSpecialty && resSpecialty.errCode === 0) {
+                && resSpecialty && resSpecialty.errCode === 0
+                && resClinic && resClinic.errCode === 0) {
                 let data = {
                     resPrice: resPrice.data,
                     resPayment: resPayment.data,
                     resProvince: resProvince.data,
                     resSpecialty: resSpecialty.data,
+                    resClinic: resClinic.data,
                 }
                 dispatch(fetchRequireDoctorInforSuccess(data))
             } else {
@@ -382,4 +385,27 @@ export const editSpecialtySuccess = () => ({
 export const editSpecialtyFailed = () => ({
     type: actionTypes.EDIT_SPECIALTY_FAILED
 })
+
+export const getAllClinics = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllClinic()
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_CLINIC_SUCCESS,
+                    dataClinic: res.data
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_CLINIC_FAILED
+                })
+            }
+        } catch (e) {
+            console.log('FETCH_ALL_SPECIALTY_FAILED', e)
+            dispatch({
+                type: actionTypes.FETCH_ALL_CLINIC_FAILED
+            })
+        }
+    }
+}
 //start->doing->end

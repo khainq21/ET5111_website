@@ -15,10 +15,10 @@
 }
 
 .slick-next {
-    border: 1px solid #d7d7d7 !important;
-    right : 10 !important;
-    height: 40px !important;
-    width : 48px !important;
+    border      : 1px solid #d7d7d7 !important;
+    height      : 40px !important;
+    width       : 48px !important;
+    margin-right: 15px;
 
     &:hover {
         border    : #d7d7d7 !important;

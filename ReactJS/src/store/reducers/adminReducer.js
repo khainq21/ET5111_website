@@ -122,6 +122,17 @@ const adminReducer = (state = initialState, action) => {
             return {
                 ...state
             }
+
+        case actionTypes.FETCH_ALL_CLINIC_SUCCESS:
+            state.allClinic = action.dataClinic
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_ALL_CLINIC_FAILED:
+            state.allClinic = []
+            return {
+                ...state
+            }
         default:
             return state;
     }

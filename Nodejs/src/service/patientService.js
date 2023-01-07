@@ -2,6 +2,7 @@ import db from '../models/index';
 require('dotenv').config({
     path: 'D:/Web20221/ET5111_website/Nodejs/src/.env'
 })
+const Op = require('Sequelize').Op;
 import emailService from './emailService';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -18,7 +19,7 @@ let postBookAppointment = (data) => {
     return new Promise(async (resolve, reject) => {
         try {
             if (!data.email || !data.doctorId || !data.timeType || !data.date
-                || !data.fullName
+                || !data.fullName || !data.selectedGender || !data.address
             ) {
                 resolve({
                     errCode: 1,
@@ -45,6 +46,9 @@ let postBookAppointment = (data) => {
                     defaults: {
                         email: data.email,
                         roleId: 'R3',
+                        gender: data.selectedGender,
+                        address: data.address,
+                        firstName: data.fullName
                         // them data tu data truyen vao-> tao thong tin user trong table User
                     }
                 })
@@ -52,7 +56,12 @@ let postBookAppointment = (data) => {
                 if (user && user[0]) {
                     await db.Booking.findOrCreate({
                         //find
-                        where: { patientId: user[0].id },
+                        where: {
+                            patientId: user[0].id,
+                            statusId: {
+                                [Op.or]: ['S1', 'S2']
+                            }
+                        },
                         //not found -> create
                         defaults: {
                             statusId: 'S1',
