@@ -1,6 +1,4 @@
-require('dotenv').config({
-    path: 'D:/Web20221/ET5111_website/Nodejs/src/.env'
-})
+require('dotenv').config()
 import nodemailer from 'nodemailer';
 
 let sendSimpleEmail = async (dataSend) => {

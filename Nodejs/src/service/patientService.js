@@ -1,7 +1,5 @@
 import db from '../models/index';
-require('dotenv').config({
-    path: 'D:/Web20221/ET5111_website/Nodejs/src/.env'
-})
+require('dotenv').config()
 const Op = require('Sequelize').Op;
 import emailService from './emailService';
 import { v4 as uuidv4 } from 'uuid';

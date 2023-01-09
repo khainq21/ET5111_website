@@ -5,9 +5,7 @@ import initWebRoutes from './route/web';
 import connectDB from './config/connectDB';
 // import cors from 'cors';
 
-require('dotenv').config({
-    path: 'D:/Web20221/ET5111_website/Nodejs/src/.env'
-})
+require('dotenv').config()
 
 let app = express();
 // app.use(cors({ origin: true }))

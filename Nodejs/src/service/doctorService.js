@@ -1,9 +1,7 @@
 import db from '../models/index';
 import _, { values } from 'lodash';
 
-require('dotenv').config({
-    path: 'D:/Web20221/ET5111_website/Nodejs/src/.env'
-})
+require('dotenv').config()
 import emailService from "./emailService";
 
 const MAX_NUMBER_SCHEDULE = process.env.MAX_BUMBER_SCHEDULE
