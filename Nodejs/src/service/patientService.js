@@ -48,7 +48,8 @@ let postBookAppointment = (data) => {
                         roleId: 'R3',
                         gender: data.selectedGender,
                         address: data.address,
-                        firstName: data.fullName
+                        firstName: data.fullName,
+                        phonenumber: data.phoneNumber
                         // them data tu data truyen vao-> tao thong tin user trong table User
                     }
                 })
@@ -59,8 +60,9 @@ let postBookAppointment = (data) => {
                         where: {
                             patientId: user[0].id,
                             statusId: {
-                                [Op.or]: ['S1', 'S2']
-                            }
+                                [Op.or]: ['S1', 'S2'],
+                            },
+                            timeType: data.timeType
                         },
                         //not found -> create
                         defaults: {
@@ -113,7 +115,7 @@ let postVerifyBookAppointment = (data) => {
                 } else {
                     resolve({
                         errCode: 2,
-                        errMessage: "Lịch hẹn đã được kích hoạt hoặc không tồn tại"
+                        errMessage: "Lịch hẹn đã được kích hoạt hoặc không tồn tại-vui lòng kiểm tra lại!"
                     })
                 }
             }

@@ -4,6 +4,7 @@ import _, { values } from 'lodash';
 require('dotenv').config({
     path: 'D:/Web20221/ET5111_website/Nodejs/src/.env'
 })
+import emailService from "./emailService";
 
 const MAX_NUMBER_SCHEDULE = process.env.MAX_BUMBER_SCHEDULE
 
@@ -442,9 +443,10 @@ let sendRemedy = (data) => {
                     await appointment.save()
                 }
                 //send email remedy to patient
+                await emailService.sendAttachment(data)
                 resolve({
                     errCode: 0,
-                    data: data
+                    errMessage: 'OK'
                 })
             }
         } catch (e) {
@@ -476,7 +478,8 @@ let sendRejection = (data) => {
                     rejection.statusId = "S4"
                     await rejection.save()
                 }
-                //send email remedy to patient
+                //send email rreject to patient
+                await emailService.sendRejectEmail(data)
                 resolve({
                     errCode: 0,
                     errMessage: 'OK'

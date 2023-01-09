@@ -65,7 +65,8 @@ class ManagePatient extends Component {
             doctorId: item.doctorId,
             patientId: item.patientId,
             email: item.patientData.email,
-            timeType: item.timeType
+            timeType: item.timeType,
+            patientName: item.patientData.firstName,
         }
         this.setState({
             isOpenRemedyModal: true,
@@ -78,7 +79,8 @@ class ManagePatient extends Component {
             doctorId: item.doctorId,
             patientId: item.patientId,
             email: item.patientData.email,
-            timeType: item.timeType
+            timeType: item.timeType,
+            patientName: item.patientData.firstName,
         }
         this.setState({
             isOpenRejectModal: true,
@@ -106,6 +108,8 @@ class ManagePatient extends Component {
             doctorId: dataModal.doctorId,
             patientId: dataModal.patientId,
             timeType: dataModal.timeType,
+            language: this.props.language,
+            patientName: dataModal.patientName,
         })
         if (res && res.errCode === 0) {
             toast.success("Xác nhận lịch khám thành công!")
@@ -124,6 +128,8 @@ class ManagePatient extends Component {
             doctorId: dataModal.doctorId,
             patientId: dataModal.patientId,
             timeType: dataModal.timeType,
+            language: this.props.language,
+            patientName: dataModal.patientName,
         })
         if (res && res.errCode === 0) {
             toast.success("Xác nhận hủy lịch khám thành công!")
