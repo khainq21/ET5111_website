@@ -2,7 +2,7 @@ import actionTypes from './actionTypes';
 import {
     getAllCodeService, createNewUserService, getAllUsers,
     deleteUserService, editUserService, getTopDoctorHomeService, getAllDoctors, saveDetailDoctorService
-    , getAllSpecialties, editSpecialtyService, getAllClinic,
+    , getAllSpecialties, editSpecialtyService, getAllClinic, getAllHandbook,
 } from '../../services/userService';
 import { toast } from 'react-toastify';
 
@@ -404,6 +404,29 @@ export const getAllClinics = () => {
             console.log('FETCH_ALL_SPECIALTY_FAILED', e)
             dispatch({
                 type: actionTypes.FETCH_ALL_CLINIC_FAILED
+            })
+        }
+    }
+}
+
+export const getAllHandbooks = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllHandbook()
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_HANDBOOK_SUCCESS,
+                    dataHandbook: res.data
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_HANDBOOK_FAILED
+                })
+            }
+        } catch (e) {
+            console.log(e)
+            dispatch({
+                type: actionTypes.FETCH_ALL_HANDBOOK_FAILED
             })
         }
     }

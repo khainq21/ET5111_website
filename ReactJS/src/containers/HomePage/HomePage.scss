@@ -37,8 +37,7 @@
     }
 
     &.section-information {
-        border: 1px solid green;
-        height: 300px;
+        height: 100%;
     }
 
 
@@ -55,6 +54,8 @@
                 background-repeat  : no-repeat;
                 background-size    : cover;
                 background-color   : #eee;
+                border-radius      : 8px;
+                border             : 1.2px solid black;
 
                 &.section-specialty {
                     background-image: url('../../assets/specialty/khoaxuongkhop.jpg');
@@ -106,6 +107,8 @@
                 outline       : none;
                 display       : flex;
                 text-transform: uppercase;
+                border-radius : 8px;
+
 
                 &:hover {
                     cursor    : pointer;
@@ -132,8 +135,9 @@
         cursor : pointer;
 
         .customize-boder {
-            border : 1px solid #3a94de;
-            padding: 20px;
+            border       : 1px solid #3a94de;
+            padding      : 20px;
+            border-radius: 8px;
         }
     }
 }

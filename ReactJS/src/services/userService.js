@@ -113,6 +113,23 @@ const postSendReject = (data) => {
     return axios.post('/api/send-rejection', data)
 }
 
+const createNewHandbook = (data) => {
+    return axios.post('/api/create-new-handbook', data)
+}
+
+const getAllHandbook = () => {
+    return axios.get('/api/get-all-handbook')
+}
+
+const editHandbookService = (inputData) => {
+    return axios.put('/api/edit-handbook', inputData)
+}
+
+const getAllDetailHandbookById = (data) => {
+    return axios.get(`/api/get-detail-handbook-by-id?id=${data.id}`)
+}
+
+
 export {
     handleLoginApi, getAllUsers, createNewUserService,
     deleteUserService, editUserService, getAllCodeService, getTopDoctorHomeService,
@@ -120,5 +137,6 @@ export {
     getScheduleDoctorByDate, getExtraInforDoctorById, getProfileDoctorById, postPatientBookingAppointment,
     postVerifyBookingAppointment, createNewSpecialty, getAllSpecialties, editSpecialtyService,
     getAllDetailSpecialtyById, createNewClinic, getAllClinic, editClinicService, getAllDetailclinicById,
-    getAllPatientForDoctor, postSendRemedy, postSendReject,
+    getAllPatientForDoctor, postSendRemedy, postSendReject, createNewHandbook, getAllHandbook, editHandbookService,
+    getAllDetailHandbookById,
 }

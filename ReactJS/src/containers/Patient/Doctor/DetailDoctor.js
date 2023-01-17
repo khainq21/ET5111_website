@@ -39,8 +39,6 @@ class DetailDoctor extends Component {
 
 
     render() {
-
-
         let { DetailDoctor, } = this.state
         let { language } = this.props
         let nameVi = ''

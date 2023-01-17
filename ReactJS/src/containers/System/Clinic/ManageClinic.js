@@ -24,7 +24,6 @@ class ManageClinic extends Component {
             descriptionMarkdown: '',
             previewImgURL: '',
             clinicId: '',
-            clinicArr: [],
         }
     }
 
@@ -182,7 +181,6 @@ class ManageClinic extends Component {
                                 <th>ID</th>
                                 <th>name</th>
                                 <th>address</th>
-                                <th>descriptionHTML</th>
                                 <th>descriptionMarkdown</th>
                                 <th>Actions</th>
                             </tr>
@@ -192,7 +190,6 @@ class ManageClinic extends Component {
                                         <td>{item.id}</td>
                                         <td>{item.name}</td>
                                         <td>{item.address}</td>
-                                        <td>{item.descriptionHTML}</td>
                                         <td>{item.descriptionMarkdown}</td>
                                         <td>
                                             <button className='btn-edit'

@@ -412,7 +412,7 @@ class ManageDoctor extends Component {
                     <button className={hasOldData === true ? 'save-content-doctor' : 'create-content-doctor'}
                         onClick={() => this.handleSaveContentMarkdown()}
                     >
-                        {hasOldData == true ?
+                        {hasOldData === true ?
                             <span> <FormattedMessage id="admin.manage-doctor.save" /></span>
                             :
                             <span> <FormattedMessage id="admin.manage-doctor.create" /></span>

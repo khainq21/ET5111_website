@@ -121,17 +121,17 @@ class ManageSpecialty extends Component {
 
         return (
             <div className='manage-specialty-container'>
-                <div className='ms-title'>Quan ly chuyen khoa</div>
+                <div className='ms-title'>Quản lý chuyên khoa</div>
                 <div className='add-new-specialty row'>
                     <div className='col-6 form-group'>
-                        <label>Ten chuyen khoa</label>
+                        <label>Tên chuyên khoa</label>
                         <input className='form-control' type='text'
                             value={this.state.name}
                             onChange={(event) => this.handleOnChangeInput(event, 'name')}
                         />
                     </div>
                     <div className='col-6 form-group'>
-                        <label>Anh chuyen khoa</label>
+                        <label>Ảnh chuyên khoa</label>
                         <input className='form-control-file'
                             type='file'
                             onChange={(event) => this.handleOnChangeImage(event)}
@@ -163,7 +163,6 @@ class ManageSpecialty extends Component {
                             <tr>
                                 <th>ID</th>
                                 <th>name</th>
-                                <th>descriptionHTML</th>
                                 <th>descriptionMarkdown</th>
                                 <th>Actions</th>
                             </tr>
@@ -172,7 +171,6 @@ class ManageSpecialty extends Component {
                                     <tr key={index}>
                                         <td>{item.id}</td>
                                         <td>{item.name}</td>
-                                        <td>{item.descriptionHTML}</td>
                                         <td>{item.descriptionMarkdown}</td>
                                         <td>
                                             <button className='btn-edit'
