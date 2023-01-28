@@ -4,6 +4,8 @@ import './MedicalFacility.scss';
 import Slider from "react-slick";
 import { getAllClinic } from "../../../services/userService";
 import { withRouter } from 'react-router';
+import ModalMoreInfor from './ModalMoreInfor/ModalMoreInfor';
+import { FormattedMessage } from 'react-intl';
 
 
 
@@ -13,6 +15,7 @@ class MedicalFacility extends Component {
         super(props)
         this.state = {
             dataClinics: [],
+            isOpenModalMoreInfor: false
         }
     }
 
@@ -32,40 +35,62 @@ class MedicalFacility extends Component {
         }
     }
 
+    OpenModalMoreInfor = () => {
+        this.setState({
+            isOpenModalMoreInfor: true
+        })
+    }
+
+    CloseModalMoreInfor = () => {
+        this.setState({
+            isOpenModalMoreInfor: false
+        })
+    }
+
     render() {
 
-        let { dataClinics } = this.state
+        let { dataClinics, isOpenModalMoreInfor } = this.state
 
         return (
-            <div className='section-share section-medical-facility'>
-                <div className='section-container'>
-                    <div className='section-header'>
-                        <span className='title-section'>Cơ sử y tế nổi bật</span>
-                        <button className='btn-section'>Xem thêm</button>
-                    </div>
-                    <div className='section-body'>
-                        <Slider {...this.props.settings}>
-                            {dataClinics && dataClinics.length > 0
-                                &&
-                                dataClinics.map((item, index) => {
-                                    return (
-                                        <div className='section-customize clinic-child'
-                                            key={index}
-                                            onClick={() => this.handleViewDetailClinic(item)}
-                                        >
-                                            <div className='bg-image section-medical-facility'
+            <>
+                <div className='section-share section-medical-facility'>
+                    <div className='section-container'>
+                        <div className='section-header'>
+                            <span className='title-section'><FormattedMessage id='homepage.outstanding-clinic' /></span>
+                            <button className='btn-section'
+                                onClick={() => this.OpenModalMoreInfor()}
+                            ><FormattedMessage id='homepage.more-infor' /></button>
+                        </div>
+                        <div className='section-body'>
+                            <Slider {...this.props.settings}>
+                                {dataClinics && dataClinics.length > 0
+                                    &&
+                                    dataClinics.map((item, index) => {
+                                        return (
+                                            <div className='section-customize clinic-child'
+                                                key={index}
+                                                onClick={() => this.handleViewDetailClinic(item)}
+                                            >
+                                                <div className='bg-image section-medical-facility'
 
-                                                style={{ backgroundImage: `url(${item.image})` }}
-                                            />
-                                            <div className='clinic-name'>{item.name}</div>
-                                        </div>
-                                    )
-                                })
-                            }
-                        </Slider>
+                                                    style={{ backgroundImage: `url(${item.image})` }}
+                                                />
+                                                <div className='clinic-name'>{item.name}</div>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </Slider>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <ModalMoreInfor
+                    isOpenModal={isOpenModalMoreInfor}
+                    closeMoreInforModal={this.CloseModalMoreInfor}
+                    id={'Clinic'}
+                    data={dataClinics}
+                />
+            </>
         );
     }
 

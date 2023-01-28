@@ -57,7 +57,9 @@
     "homepage": {
         "outstanding-doctor": "Outstanding Doctors",
         "more-infor": "More Infor",
-        "specialty-polular": "Popular specialties"
+        "specialty-polular": "Popular specialties",
+        "outstanding-clinic": "Outstanding Clinics",
+        "handbook": "Handbooks"
     },
     "manage-schedule": {
         "title": "Manage doctor's examination plan",

@@ -45,9 +45,9 @@ class HomeFooter extends Component {
                     </section>
                     <section className='mb-4'>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum repellat quaerat
-                            voluptatibus placeat nam, commodi optio pariatur est quia magnam eum harum corrupti dicta, aliquam
-                            sequi voluptate quas.
+                            Chăm sóc sức khỏe cộng đồng là sứ mệnh cao cả của chúng tôi. Hãy chung tay xây dựng một cộng đồng lớn mạnh,
+                            góp phần thúc đấy sự phát triển của đất nước. Mỗi cá nhân khỏe mạnh là một gia đình hạnh phúc, mỗi gia đình hạnh phúc
+                            là một đất nước vững mạnh.
                         </p>
                     </section>
                 </MDBContainer>

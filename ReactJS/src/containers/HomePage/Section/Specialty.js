@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { getAllSpecialties } from '../../../services/userService';
 import { FormattedMessage } from 'react-intl';
 import { withRouter } from 'react-router';
+import ModalMoreInfor from './ModalMoreInfor/ModalMoreInfor';
 
 
 
@@ -17,6 +18,7 @@ class Specialty extends Component {
         super(props)
         this.state = {
             dataSpecialty: [],
+            isOpenModalMoreInfor: false,
         }
     }
 
@@ -36,35 +38,57 @@ class Specialty extends Component {
         }
     }
 
+    OpenModalMoreInfor = () => {
+        this.setState({
+            isOpenModalMoreInfor: true
+        })
+    }
+
+    CloseModalMoreInfor = () => {
+        this.setState({
+            isOpenModalMoreInfor: false
+        })
+    }
+
     render() {
-        let { dataSpecialty } = this.state
+        let { dataSpecialty, isOpenModalMoreInfor } = this.state
         return (
-            <div className='section-share section-specialty'>
-                <div className='section-container'>
-                    <div className='section-header'>
-                        <span className='title-section'><FormattedMessage id='homepage.specialty-polular' /></span>
-                        <button className='btn-section'><FormattedMessage id='homepage.more-infor' /></button>
-                    </div>
-                    <div className='section-body'>
-                        <Slider {...this.props.settings}>
-                            {dataSpecialty && dataSpecialty.length > 0
-                                && dataSpecialty.map((item, index) => {
-                                    return (
-                                        <div className='section-customize specialty-child'
-                                            key={index}
-                                            onClick={() => this.handleViewDetailSpecialty(item)}
-                                        >
-                                            <div className='bg-image section-specialty'
-                                                style={{ backgroundImage: `url(${item.image})` }}
-                                            />
-                                            <div className='specialty-name'>{item.name}</div>
-                                        </div>
-                                    )
-                                })}
-                        </Slider>
+            <>
+                <div className='section-share section-specialty'>
+                    <div className='section-container'>
+                        <div className='section-header'>
+                            <span className='title-section'><FormattedMessage id='homepage.specialty-polular' /></span>
+                            <button className='btn-section'
+                                onClick={() => this.OpenModalMoreInfor()}
+                            ><FormattedMessage id='homepage.more-infor' /></button>
+                        </div>
+                        <div className='section-body'>
+                            <Slider {...this.props.settings}>
+                                {dataSpecialty && dataSpecialty.length > 0
+                                    && dataSpecialty.map((item, index) => {
+                                        return (
+                                            <div className='section-customize specialty-child'
+                                                key={index}
+                                                onClick={() => this.handleViewDetailSpecialty(item)}
+                                            >
+                                                <div className='bg-image section-specialty'
+                                                    style={{ backgroundImage: `url(${item.image})` }}
+                                                />
+                                                <div className='specialty-name'>{item.name}</div>
+                                            </div>
+                                        )
+                                    })}
+                            </Slider>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <ModalMoreInfor
+                    isOpenModal={isOpenModalMoreInfor}
+                    closeMoreInforModal={this.CloseModalMoreInfor}
+                    id={'Specialty'}
+                    data={dataSpecialty}
+                />
+            </>
         );
     }
 

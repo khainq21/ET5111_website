@@ -4,6 +4,8 @@ import Slider from "react-slick";
 import './Handbook.scss';
 import { getAllHandbook } from "../../../services/userService";
 import { withRouter } from 'react-router';
+import ModalMoreInfor from './ModalMoreInfor/ModalMoreInfor';
+import { FormattedMessage } from 'react-intl';
 
 
 class HandBook extends Component {
@@ -11,6 +13,7 @@ class HandBook extends Component {
         super(props)
         this.state = {
             dataHandbooks: [],
+            isOpenModalMoreInfor: false
         }
     }
 
@@ -30,40 +33,62 @@ class HandBook extends Component {
         }
     }
 
+    OpenModalMoreInfor = () => {
+        this.setState({
+            isOpenModalMoreInfor: true
+        })
+    }
+
+    CloseModalMoreInfor = () => {
+        this.setState({
+            isOpenModalMoreInfor: false
+        })
+    }
+
     render() {
 
-        let { dataHandbooks } = this.state
+        let { dataHandbooks, isOpenModalMoreInfor } = this.state
 
         return (
-            <div className='section-share section-handbook'>
-                <div className='section-container'>
-                    <div className='section-header'>
-                        <span className='title-section'>Cẩm nang</span>
-                        <button className='btn-section'>Xem thêm</button>
-                    </div>
-                    <div className='section-body'>
-                        <Slider {...this.props.settings}>
-                            {dataHandbooks && dataHandbooks.length > 0
-                                &&
-                                dataHandbooks.map((item, index) => {
-                                    return (
-                                        <div className='section-customize handbook-child'
-                                            key={index}
-                                            onClick={() => this.handleViewDetailHandbook(item)}
-                                        >
-                                            <div className='bg-image section-handbook'
+            <>
+                <div className='section-share section-handbook'>
+                    <div className='section-container'>
+                        <div className='section-header'>
+                            <span className='title-section'><FormattedMessage id='homepage.handbook' /></span>
+                            <button className='btn-section'
+                                onClick={() => this.OpenModalMoreInfor()}
+                            ><FormattedMessage id='homepage.more-infor' /></button>
+                        </div>
+                        <div className='section-body'>
+                            <Slider {...this.props.settings}>
+                                {dataHandbooks && dataHandbooks.length > 0
+                                    &&
+                                    dataHandbooks.map((item, index) => {
+                                        return (
+                                            <div className='section-customize handbook-child'
+                                                key={index}
+                                                onClick={() => this.handleViewDetailHandbook(item)}
+                                            >
+                                                <div className='bg-image section-handbook'
 
-                                                style={{ backgroundImage: `url(${item.image})` }}
-                                            />
-                                            <div className='handbook-name'>{item.name}</div>
-                                        </div>
-                                    )
-                                })
-                            }
-                        </Slider>
+                                                    style={{ backgroundImage: `url(${item.image})` }}
+                                                />
+                                                <div className='handbook-name'>{item.name}</div>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </Slider>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <ModalMoreInfor
+                    isOpenModal={isOpenModalMoreInfor}
+                    closeMoreInforModal={this.CloseModalMoreInfor}
+                    id={'Handbook'}
+                    data={dataHandbooks}
+                />
+            </>
         );
     }
 

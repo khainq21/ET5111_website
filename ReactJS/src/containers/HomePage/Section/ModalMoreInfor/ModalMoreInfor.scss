@@ -1,0 +1,63 @@
+.more-infor-modal-container {
+    .more-infor-modal-content {
+        height        : 100%;
+        display       : flex;
+        flex-direction: column;
+
+        .more-infor-modal-header {
+            padding      : 10px;
+            border-bottom: 1px solid #ccc;
+
+            .right {
+                float : right;
+                cursor: pointer;
+            }
+        }
+
+        .more-infor-content {
+            padding: 5px;
+            height : 100%;
+
+            .more-infor-img {
+                display: flex;
+                cursor : pointer;
+
+                .more-infor-imgbase64 {
+                    width              : 40%;
+                    height             : 80px;
+                    background-position: center center;
+                    background-repeat  : no-repeat;
+                    background-size    : cover;
+                }
+
+                .more-infor-name {
+                    width       : 60%;
+                    padding-left: 20px;
+
+                    &:hover {
+                        color: #45c3d2;
+                    }
+                }
+            }
+        }
+
+        .more-infor-modal-footer {
+            padding        : 10px;
+            border-top     : 1px solid #ccc;
+            display        : flex;
+            justify-content: flex-end;
+            gap            : 15px;
+
+            button {
+                border       : none;
+                outline      : none;
+                padding      : 5px 8px;
+                border-radius: 3px;
+            }
+
+            .btn-more-infor-cancel {
+                background-color: #67d0f3;
+            }
+        }
+    }
+}
