@@ -71,7 +71,7 @@ class HomeHeader extends Component {
                             <div className='tiltle2'><FormattedMessage id="banner.title2" /></div>
                             <div className='search'>
                                 <i className="fas fa-search"></i>
-                                <input type='text' placeholder='Tìm kiếm chuyên khoa phù hợp'></input>
+                                <input className='placeholder' type='text' placeholder='Tìm kiếm chuyên khoa phù hợp'></input>
                             </div>
                         </div>
                         <div className='content-down'>

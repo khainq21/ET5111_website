@@ -7,6 +7,7 @@ import *as actions from "../../../store/actions";
 import { LANGUAGES } from '../../../utils';
 import { FormattedMessage } from 'react-intl';
 import { withRouter } from 'react-router';
+import './OutStandingDoctor.scss';
 
 
 class OutStandingDoctor extends Component {
@@ -38,7 +39,6 @@ class OutStandingDoctor extends Component {
     render() {
         let { arrDoctors } = this.state
         let { language } = this.props
-        arrDoctors = arrDoctors.concat(arrDoctors).concat(arrDoctors)
         return (
             <div className='section-share section-outstanding-doctor'>
                 <div className='section-container'>
@@ -66,7 +66,7 @@ class OutStandingDoctor extends Component {
                                                 </div>
                                                 <div className='position text-center'>
                                                     <div>{language === LANGUAGES.VI ? nameVi : nameEn}</div>
-                                                    <div>Khoa sản</div>
+                                                    <div className='detail-infor'>Thông tin chi tiết</div>
                                                 </div>
                                             </div>
                                         </div>

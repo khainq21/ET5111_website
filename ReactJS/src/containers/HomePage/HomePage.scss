@@ -48,13 +48,13 @@
 
         .section-customize {
             .bg-image {
-                height             : 150px;
+                height             : 160px;
                 width              : 258px;
                 background-position: center center;
                 background-repeat  : no-repeat;
                 background-size    : cover;
                 background-color   : #eee;
-                border-radius      : 8px;
+                border-radius      : 10px;
                 border             : 1.2px solid black;
 
                 &.section-specialty {
@@ -81,7 +81,7 @@
 }
 
 .section-share {
-    height: 330px;
+    height: 340px;
 
 
     .section-container {

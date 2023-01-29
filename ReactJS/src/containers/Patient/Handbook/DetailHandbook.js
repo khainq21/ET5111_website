@@ -5,6 +5,7 @@ import { getAllDetailHandbookById } from '../../../services/userService';
 import _ from 'lodash';
 import HomeHeader from '../../HomePage/HomeHeader';
 import "./DetailHandbook.scss";
+import HomeFooter from "../../HomePage/HomeFooter";
 
 class DetailHandbook extends Component {
 
@@ -39,21 +40,24 @@ class DetailHandbook extends Component {
     render() {
         let { DetailHandbook } = this.state
         return (
-            <div className='detail-handbook-container'>
-                <HomeHeader />
-                <div className='detail-handbook-body'>
-                    <div className='handbook-content'>
-                        {DetailHandbook && !_.isEmpty(DetailHandbook)
-                            &&
-                            <>
-                                <div>{DetailHandbook.name}</div>
-                                <div dangerouslySetInnerHTML={{ __html: DetailHandbook.descriptionHTML }} >
-                                </div>
-                            </>
-                        }
+            <>
+                <div className='detail-handbook-container'>
+                    <HomeHeader />
+                    <div className='detail-handbook-body'>
+                        <div className='handbook-content'>
+                            {DetailHandbook && !_.isEmpty(DetailHandbook)
+                                &&
+                                <>
+                                    <div>{DetailHandbook.name}</div>
+                                    <div dangerouslySetInnerHTML={{ __html: DetailHandbook.descriptionHTML }} >
+                                    </div>
+                                </>
+                            }
+                        </div>
                     </div>
                 </div>
-            </div>
+                <HomeFooter />
+            </>
         );
     }
 }

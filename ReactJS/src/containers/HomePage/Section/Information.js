@@ -11,10 +11,12 @@ class Information extends Component {
     render() {
 
         return (
-            <div className='section-share section-information'>
-                <video autoPlay loop muted playsInline>
-                    <source src={home} />
-                </video>
+            <div className='container'>
+                <div className='section-share section-information'>
+                    <video autoPlay loop muted playsInline>
+                        <source src={home} />
+                    </video>
+                </div>
             </div>
         );
     }

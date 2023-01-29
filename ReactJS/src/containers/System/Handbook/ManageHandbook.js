@@ -167,7 +167,7 @@ class ManageHandbook extends Component {
                             <tr>
                                 <th>ID</th>
                                 <th>name</th>
-                                <th>descriptionMarkdown</th>
+                                {/* <th>descriptionMarkdown</th> */}
                                 <th>Actions</th>
                             </tr>
                             {handbookArr && handbookArr.map((item, index) => {
@@ -175,7 +175,7 @@ class ManageHandbook extends Component {
                                     <tr key={index}>
                                         <td>{item.id}</td>
                                         <td>{item.name}</td>
-                                        <td>{item.descriptionMarkdown}</td>
+                                        {/* <td>{item.descriptionMarkdown}</td> */}
                                         <td>
                                             <button className='btn-edit'
                                                 onClick={() => { this.handleEditHandbook(item) }}

@@ -6,6 +6,7 @@ import { getDetailInforDoctor } from '../../../services/userService';
 import { LANGUAGES } from '../../../utils';
 import DoctorSchedule from './DoctorSchedule';
 import DoctorExtraInfor from '../../Patient/Doctor/DoctorExtraInfor';
+import HomeFooter from '../../HomePage/HomeFooter';
 
 class DetailDoctor extends Component {
 
@@ -92,6 +93,7 @@ class DetailDoctor extends Component {
                     <div className='comment-docotor'>
 
                     </div>
+                    <HomeFooter />
                 </div>
             </>
 

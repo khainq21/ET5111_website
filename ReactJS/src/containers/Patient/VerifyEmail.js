@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import { postVerifyBookingAppointment } from '../../services/userService';
 import HomeHeader from '../HomePage/HomeHeader';
 import './VerifyEmail.scss';
+import HomeFooter from '../HomePage/HomeFooter';
 
 class VerifyEmail extends Component {
 
@@ -68,6 +69,7 @@ class VerifyEmail extends Component {
                         </div>
                     }
                 </div>
+                <HomeFooter />
             </>
         );
     }

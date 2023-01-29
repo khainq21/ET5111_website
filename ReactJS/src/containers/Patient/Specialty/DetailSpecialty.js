@@ -9,6 +9,7 @@ import ProfileDoctor from '../Doctor/ProfileDoctor';
 import { getAllDetailSpecialtyById, getAllCodeService } from '../../../services/userService';
 import _ from 'lodash';
 import { LANGUAGES } from '../../../utils';
+import HomeFooter from "../../HomePage/HomeFooter";
 
 class DetailSpecialty extends Component {
 
@@ -163,6 +164,7 @@ class DetailSpecialty extends Component {
                             )
                         })}
                 </div>
+                <HomeFooter />
             </div>
         );
     }
