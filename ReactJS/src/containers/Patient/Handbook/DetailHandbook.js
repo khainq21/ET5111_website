@@ -40,24 +40,22 @@ class DetailHandbook extends Component {
     render() {
         let { DetailHandbook } = this.state
         return (
-            <>
-                <div className='detail-handbook-container'>
-                    <HomeHeader />
-                    <div className='detail-handbook-body'>
-                        <div className='handbook-content'>
-                            {DetailHandbook && !_.isEmpty(DetailHandbook)
-                                &&
-                                <>
-                                    <div>{DetailHandbook.name}</div>
-                                    <div dangerouslySetInnerHTML={{ __html: DetailHandbook.descriptionHTML }} >
-                                    </div>
-                                </>
-                            }
-                        </div>
+            <div className='detail-handbook-container'>
+                <HomeHeader />
+                <div className='detail-handbook-body'>
+                    <div className='handbook-content'>
+                        {DetailHandbook && !_.isEmpty(DetailHandbook)
+                            &&
+                            <>
+                                <div>{DetailHandbook.name}</div>
+                                <div dangerouslySetInnerHTML={{ __html: DetailHandbook.descriptionHTML }} >
+                                </div>
+                            </>
+                        }
                     </div>
                 </div>
                 <HomeFooter />
-            </>
+            </div>
         );
     }
 }

@@ -18,6 +18,7 @@ class DetailClinic extends Component {
         this.state = {
             arrDoctorId: [],
             dataDetailClinic: {},
+            backgroundImage: ''
         }
     }
 
@@ -31,6 +32,7 @@ class DetailClinic extends Component {
 
             if (res && res.errCode === 0) {
                 let data = res.data
+                let backgroundImg = Buffer.from(res.data.image, 'base64').toString('binary')
                 // lay doctorId tu api va set state arrDoctorId
                 let arrDoctorId = []
                 if (data && !_.isEmpty(res.data)) {
@@ -45,7 +47,7 @@ class DetailClinic extends Component {
                 this.setState({
                     dataDetailClinic: res.data,
                     arrDoctorId: arrDoctorId,
-
+                    backgroundImage: backgroundImg
                 })
             }
         }
@@ -59,18 +61,18 @@ class DetailClinic extends Component {
 
 
     render() {
-        let { arrDoctorId, dataDetailClinic } = this.state
+        let { arrDoctorId, dataDetailClinic, backgroundImage } = this.state
         let { language } = this.props
         return (
             <div className='detail-specialty-container'>
                 <HomeHeader />
                 <div className='detail-specialty-body'>
-                    <div className='description-specialty'>
+                    <div className='description-specialty' style={{ backgroundImage: `url(${backgroundImage})` }}>
                         {dataDetailClinic && !_.isEmpty(dataDetailClinic)
                             &&
                             <>
-                                <div>{dataDetailClinic.name}</div>
-                                <div dangerouslySetInnerHTML={{ __html: dataDetailClinic.descriptionHTML }} >
+                                <div className='name'>{dataDetailClinic.name}</div>
+                                <div className='description' dangerouslySetInnerHTML={{ __html: dataDetailClinic.descriptionHTML }} >
                                 </div>
                             </>
                         }

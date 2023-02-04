@@ -15,8 +15,10 @@
         }
 
         .more-infor-content {
-            padding: 5px;
-            height : 100%;
+            padding      : 5px;
+            height       : 100%;
+            box-shadow   : 0 1px 4px #20212447;
+            border-radius: 8px;
 
             .more-infor-img {
                 display: flex;
@@ -28,6 +30,8 @@
                     background-position: center center;
                     background-repeat  : no-repeat;
                     background-size    : cover;
+                    border             : 1px solid #20212447;
+                    border-radius      : 5px;
                 }
 
                 .more-infor-name {

@@ -19,6 +19,7 @@ class DetailSpecialty extends Component {
             arrDoctorId: [],
             dataDetailSpecialty: {},
             listPrivince: [],
+            backgroundImage: ''
         }
     }
 
@@ -35,6 +36,7 @@ class DetailSpecialty extends Component {
 
             if (res && res.errCode === 0 && resProvicne && resProvicne.errCode === 0) {
                 let data = res.data
+                let backgroundImg = Buffer.from(res.data.image, 'base64').toString('binary')
                 // lay doctorId tu api va set state arrDoctorId
                 let arrDoctorId = []
                 if (data && !_.isEmpty(res.data)) {
@@ -60,7 +62,8 @@ class DetailSpecialty extends Component {
                 this.setState({
                     dataDetailSpecialty: res.data,
                     arrDoctorId: arrDoctorId,
-                    listPrivince: dataProvince ? dataProvince : []
+                    listPrivince: dataProvince ? dataProvince : [],
+                    backgroundImage: backgroundImg
                 })
             }
         }
@@ -105,16 +108,16 @@ class DetailSpecialty extends Component {
     }
 
     render() {
-        let { arrDoctorId, dataDetailSpecialty, listPrivince } = this.state
+        let { arrDoctorId, dataDetailSpecialty, listPrivince, backgroundImage } = this.state
         let { language } = this.props
         return (
             <div className='detail-specialty-container'>
                 <HomeHeader />
                 <div className='detail-specialty-body'>
-                    <div className='description-specialty'>
+                    <div className='description-specialty' style={{ backgroundImage: `url(${backgroundImage})` }}>
                         {dataDetailSpecialty && !_.isEmpty(dataDetailSpecialty)
                             &&
-                            <div dangerouslySetInnerHTML={{ __html: dataDetailSpecialty.descriptionHTML }} >
+                            <div className='description' dangerouslySetInnerHTML={{ __html: dataDetailSpecialty.descriptionHTML }} >
                             </div>
                         }
                     </div >

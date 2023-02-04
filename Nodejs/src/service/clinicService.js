@@ -107,7 +107,7 @@ let getDetailClinicById = (inputId) => {
                     where: {
                         id: inputId
                     },
-                    attributes: ['name', 'address', 'descriptionHTML', 'descriptionMarkdown']
+                    attributes: ['name', 'address', 'descriptionHTML', 'descriptionMarkdown', 'image']
                 })
                 if (data) {
                     // get doctor_infor

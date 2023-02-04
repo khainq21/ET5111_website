@@ -1,14 +1,33 @@
 .detail-specialty-container {
     .description-specialty {
-        background-color: white !important;
-        padding         : 10px;
-        margin          : 15px 0;
+        padding            : 10px;
+        margin             : 15px 0;
+        background-repeat  : no-repeat;
+        background-position: center;
+        background-size    : cover;
+
 
         h1,
         h2,
         h3 {
             font-size  : 16px;
             font-weight: 600;
+        }
+
+        .name {
+            font-size       : large;
+            font-weight     : 600;
+            color           : #17a2b8;
+            background-color: #eeeeee;
+            border-radius   : 5px;
+            text-align      : center;
+            padding-bottom  : 10px;
+        }
+
+        .description {
+            box-shadow      : 0 1px 4px #20212447;
+            border-radius   : 8px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
         }
 
     }
