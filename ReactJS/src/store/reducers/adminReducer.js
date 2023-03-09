@@ -152,3 +152,6 @@ const adminReducer = (state = initialState, action) => {
 }
 
 export default adminReducer;
+
+//nơi thực hiện các chức năng và lấy data từ các action lưu vào bộ nhớ của reddux
+// các file còn lại tương tự nhưng phân rõ các action.

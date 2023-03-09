@@ -1,5 +1,8 @@
 import doctorService from "../service/doctorService";
 
+// chứa các hàm nhận và gửi yêu cầu cũng như phản hồi từ phía client lên hệ thống
+// ở đây là các yêu cầu liên quan tới bác sĩ
+
 let getTopDoctorHome = async (req, res) => {
     let limit = req.query.limit
     if (!limit) limit = 10

@@ -5,6 +5,8 @@ import ManageSchedule from '../containers/System/Doctor/ManageSchedule';
 import Header from '../containers/Header/Header';
 import ManagePatient from '../containers/System/Doctor/ManagePatient';
 
+// chứa các route liên quan tới bác sĩ khi sử dụng hệ thống từ phía bác sĩ
+
 class Doctor extends Component {
     render() {
         const { isLoggedIn } = this.props;

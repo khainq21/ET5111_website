@@ -63,3 +63,5 @@ const actionTypes = Object.freeze({
 })
 
 export default actionTypes;
+
+// định nghĩa các action của redux - 1 store chạy song song cùng ứng dụng

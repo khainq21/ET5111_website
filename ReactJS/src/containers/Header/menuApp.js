@@ -1,3 +1,5 @@
+// file định nghĩa các chức năng phân quyền bác sĩ và admin phía hệ thống
+
 export const adminMenu = [
     { //quản lý người dùng
         name: 'menu.admin.manage-user',

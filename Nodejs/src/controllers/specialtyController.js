@@ -1,5 +1,8 @@
 import specialtyService from '../service/specialtyService';
 
+// chứa các hàm nhận và gửi yêu cầu cũng như phản hồi từ phía client lên hệ thống
+// ở đây là các yêu cầu liên quan tới chuyên khoa
+
 let createSpecialty = async (req, res) => {
     try {
         let infor = await specialtyService.createSpecialty(req.body)

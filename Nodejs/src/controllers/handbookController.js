@@ -1,5 +1,8 @@
 import handbookService from "../service/handbookService";
 
+// chứa các hàm nhận và gửi yêu cầu cũng như phản hồi từ phía client lên hệ thống
+// ở đây là các yêu cầu liên quan tới cẩm nang sức khỏe
+
 let createHandbook = async (req, res) => {
     try {
         let infor = await handbookService.createHandbook(req.body)

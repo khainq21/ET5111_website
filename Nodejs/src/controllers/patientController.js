@@ -1,5 +1,8 @@
 import patientService from '../service/patientService';
 
+// chứa các hàm nhận và gửi yêu cầu cũng như phản hồi từ phía client lên hệ thống
+// ở đây là các yêu cầu liên quan tới bệnh nhân
+
 let postBookAppointment = async (req, res) => {
     try {
         let infor = await patientService.postBookAppointment(req.body)

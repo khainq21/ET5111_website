@@ -1,5 +1,8 @@
 import userService from '../service/userService';
 
+// chứa các hàm nhận và gửi yêu cầu cũng như phản hồi từ phía client lên hệ thống
+// ở đây là các yêu cầu liên quan tới người dùng
+
 let handleLoging = async (req, res) => {
     let email = req.body.email;
     let password = req.body.password;

@@ -1,6 +1,9 @@
 import db from '../models/index';
 import CRUDservice from '../service/CRUDservice';
 
+// chứa các hàm nhận và gửi yêu cầu cũng như phản hồi từ phía client lên hệ thống
+// ở đây là các yêu cầu liên quan tớihệ thống
+
 let getHomePage = async (req, res) => {
     try {
         let data = await db.User.findAll();

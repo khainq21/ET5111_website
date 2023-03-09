@@ -12,6 +12,7 @@ import ManageHandbook from '../containers/System/Handbook/ManageHandbook';
 class System extends Component {
     render() {
         const { systemMenuPath, isLoggedIn } = this.props;
+        console.log('check login', isLoggedIn)
         return (
             <React.Fragment>
                 {isLoggedIn && <Header />}

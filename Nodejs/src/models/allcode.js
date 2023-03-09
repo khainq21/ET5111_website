@@ -1,4 +1,8 @@
 'use strict';
+
+// chứa các models khởi tạo bảng thông qua sequelize và định nghĩa mối quan hệ giữa các bảng tại associate
+// tương tự tại các file models còn lại
+
 const {
     Model
 } = require('sequelize');

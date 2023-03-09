@@ -9,6 +9,8 @@ import { changeLanguageApp } from '../../store/actions';
 import { FormattedMessage } from 'react-intl';
 import _ from 'lodash';
 
+// giao diện thanh header trang chủ phía hệ thống
+
 class Header extends Component {
     constructor(props) {
         super(props)

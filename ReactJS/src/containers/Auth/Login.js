@@ -8,7 +8,7 @@ import { FormattedMessage } from 'react-intl';
 import { handleLoginApi } from '../../services/userService';
 import { userLoginSuccess } from '../../store/actions';
 
-
+// chứa giao diện đăng nhập phía admin và các hàm xử lý liên quan
 
 class Login extends Component {
     constructor(props) {
@@ -44,7 +44,7 @@ class Login extends Component {
                     errMessage: data.message
                 })
             }
-            if (data && data.errCode == 0) {
+            if (data && data.errCode === 0) {
                 //todo
                 this.props.userLoginSuccess(data.user)
                 console.log('login succeed!')

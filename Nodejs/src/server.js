@@ -5,6 +5,8 @@ import initWebRoutes from './route/web';
 import connectDB from './config/connectDB';
 // import cors from 'cors';
 
+// định nghĩa hệ thống, các phương thức ọi API, port viewEngine, các route
+
 require('dotenv').config()
 
 let app = express();

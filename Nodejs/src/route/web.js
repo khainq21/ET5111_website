@@ -9,6 +9,8 @@ import handbookController from "../controllers/handbookController";
 
 let router = express.Router();
 
+//định nghĩa các route của hệ thống backend , định nghĩa các api và các hàm controller xử lý API đó
+
 let initWebRoutes = (app) => {
     router.get('/', homeController.getHomePage)
     //---create user---------

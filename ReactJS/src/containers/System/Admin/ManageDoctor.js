@@ -15,6 +15,9 @@ import Select from 'react-select';
 //     { value: 'chocolate', label: 'Chocolate' },
 // ];
 
+//chưa giao diện quản lý bác sĩ phía hệ thống
+// tương tự các folder clinic, Doctor, handbook, specialty là các file quản lý phía hệ thống
+
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 
 class ManageDoctor extends Component {

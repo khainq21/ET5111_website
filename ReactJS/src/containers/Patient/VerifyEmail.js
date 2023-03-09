@@ -56,7 +56,7 @@ class VerifyEmail extends Component {
             <>
                 <HomeHeader />
                 <div className='verify-email-container'>
-                    {statusVerify == false ?
+                    {statusVerify === false ?
                         <div>
                             Loading data...
                         </div>
@@ -65,11 +65,14 @@ class VerifyEmail extends Component {
                             {+errCode === 0 ?
                                 <div className='infor-booking'>Xác nhận lịch hẹn thành công</div>
                                 :
-                                <div className='infor-booking'>Lịch hẹn không tồn tại hoặc đã được xác nhận</div>}
+                                <div className='infor-booking'>
+                                    <div>Lịch hẹn không tồn tại hoặc đã được xác nhận</div>
+                                    <div>Vui lòng kiểm tra lại</div>
+                                </div>}
                         </div>
                     }
                 </div>
-                <HomeFooter />
+                {/* <HomeFooter /> */}
             </>
         );
     }

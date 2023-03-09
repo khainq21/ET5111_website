@@ -123,57 +123,60 @@ class UserManage extends Component {
     render() {
         let arrUsers = this.state.arrUsers
         return (
-            <div className="users-container">
-                <ModalUser
-                    isOpen={this.state.isOpenModalUser}//lay gia tri state
-                    toggle={this.toggleUserModal}// lay gtri cua funtion
-                    createNewUser={this.createNewUser}
-                />
-                {this.state.isOpenModalEditlUser &&
-                    <ModalEditUser
-                        isOpen={this.state.isOpenModalEditlUser}//lay gia tri state
-                        toggle={this.toggleUserEditModal}// lay gtri cua funtion
-                        currentUser={this.state.userEdit}
-                        editUser={this.doEditUser}
-                    />}
-                <div className='title text-center'> MANAGE USERS WITH KHAI</div>
-                <div className='mx-1'>
-                    <button className='btnbtn btn-primary'
-                        onClick={() => { this.handleAddNewUser() }}
-                    ><i className="fas fa-plus px-2"></i>Create new user</button>
-                </div>
-                <div className='users-table mt-4 mx-1'>
-                    <table id="customers">
-                        <tbody>
-                            <tr>
-                                <th>Email</th>
-                                <th>Firstname</th>
-                                <th>Lastname</th>
-                                <th>Address</th>
-                                <th>Actions</th>
-                            </tr>
+            // <div className="users-container">
+            //     <ModalUser
+            //         isOpen={this.state.isOpenModalUser}//lay gia tri state
+            //         toggle={this.toggleUserModal}// lay gtri cua funtion
+            //         createNewUser={this.createNewUser}
+            //     />
+            //     {this.state.isOpenModalEditlUser &&
+            //         <ModalEditUser
+            //             isOpen={this.state.isOpenModalEditlUser}//lay gia tri state
+            //             toggle={this.toggleUserEditModal}// lay gtri cua funtion
+            //             currentUser={this.state.userEdit}
+            //             editUser={this.doEditUser}
+            //         />}
+            //     <div className='title text-center'> MANAGE USERS WITH KHAI</div>
+            //     <div className='mx-1'>
+            //         <button className='btnbtn btn-primary'
+            //             onClick={() => { this.handleAddNewUser() }}
+            //         ><i className="fas fa-plus px-2"></i>Create new user</button>
+            //     </div>
+            //     <div className='users-table mt-4 mx-1'>
+            //         <table id="customers">
+            //             <tbody>
+            //                 <tr>
+            //                     <th>Email</th>
+            //                     <th>Firstname</th>
+            //                     <th>Lastname</th>
+            //                     <th>Address</th>
+            //                     <th>Actions</th>
+            //                 </tr>
 
-                            {arrUsers && arrUsers.map((item, index) => {
-                                return (
-                                    <tr key={index}>
-                                        <td>{item.email}</td>
-                                        <td>{item.firstName}</td>
-                                        <td>{item.lastName}</td>
-                                        <td>{item.address}</td>
-                                        <td>
-                                            <button className='btn-edit'
-                                                onClick={() => { this.handleEditUser(item) }}
-                                            ><i className="far fa-edit"></i></button>
-                                            <button className='btn-delete'
-                                                onClick={() => this.handleDeleteUser(item)}
-                                            ><i className="fas fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                    </table>
-                </div>
+            //                 {arrUsers && arrUsers.map((item, index) => {
+            //                     return (
+            //                         <tr key={index}>
+            //                             <td>{item.email}</td>
+            //                             <td>{item.firstName}</td>
+            //                             <td>{item.lastName}</td>
+            //                             <td>{item.address}</td>
+            //                             <td>
+            //                                 <button className='btn-edit'
+            //                                     onClick={() => { this.handleEditUser(item) }}
+            //                                 ><i className="far fa-edit"></i></button>
+            //                                 <button className='btn-delete'
+            //                                     onClick={() => this.handleDeleteUser(item)}
+            //                                 ><i className="fas fa-trash"></i></button>
+            //                             </td>
+            //                         </tr>
+            //                     )
+            //                 })}
+            //             </tbody>
+            //         </table>
+            //     </div>
+            // </div>
+            <div className='content-adminview'>
+                <center>Hệ thống quản lý ứng dụng "Chăm sóc sức khỏe cho người bệnh"</center>
             </div>
         );
     }

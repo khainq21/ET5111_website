@@ -1,4 +1,7 @@
 'use strict';
+
+//chứa các migration để tạo bảng trong cơ sở dữ liệu thông qua sequelize, ở đây là bảng handbook
+//các bảng còn lại tương tự.=
 module.exports = {
     up: async (queryInterface, Sequelize) => {
         await queryInterface.createTable('handbooks', {

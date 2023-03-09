@@ -1,5 +1,8 @@
 import db from "../models"
 
+//các hàm service được gọi thông qua controller và là nơi thao tác trực tiếp với dữ liệu tại db thông qua sequelize
+//tại đây thao tác với các controller liên quan tới phòng khám, các filer còn lại tương tự nhưng khác đối tượng
+
 let createClinic = (data) => {
     return new Promise(async (resolve, reject) => {
         try {

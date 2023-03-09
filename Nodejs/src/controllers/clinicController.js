@@ -1,5 +1,8 @@
 import clinicService from "../service/clinicService";
 
+// chứa các hàm nhận và gửi yêu cầu cũng như phản hồi từ phía client lên hệ thống
+// ở đây là các yêu cầu liên quan tới phòng khám
+
 let createClinic = async (req, res) => {
     try {
         let infor = await clinicService.createClinic(req.body)

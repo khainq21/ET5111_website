@@ -208,7 +208,7 @@ class UserRedux extends Component {
         return (
             <div className='container'>
                 <div className='title'>
-                    User-Redux manage
+                    Quản lý thông tin người dùng
                 </div>
                 <div className='user-redux-body'>
                     <div className='container'>

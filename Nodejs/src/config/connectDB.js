@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
 
+// kết nối hệ thống với cơ sở dữ liệu
+
 // Option 1: Passing parameters separately
 const sequelize = new Sequelize('khaihocit', 'root', null, {
     host: 'localhost',

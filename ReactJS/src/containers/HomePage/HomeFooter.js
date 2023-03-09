@@ -9,7 +9,8 @@ import {
 import "./HomeFooter.scss";
 
 
-
+//giao diện phần footer chứa thông tin chi tiết của hệ thống
+//các section là các thanh lựa chọn bác sĩ, chuyên khoa, cơ sở y tế, cẩm nang ở trang chủ
 
 class HomeFooter extends Component {
 

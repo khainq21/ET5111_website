@@ -11,6 +11,9 @@ import _ from 'lodash';
 import { LANGUAGES } from '../../../utils';
 import HomeFooter from '../../HomePage/HomeFooter';
 
+//chứa giao diện thông tin chi tiết phòng khám hiển thị phía bệnh nhân
+//tương tự các folder doctor, handbook, specialty, chứa giao diện của từng đối tượng phía bệnh nhân sử dụng
+
 class DetailClinic extends Component {
 
     constructor(props) {
