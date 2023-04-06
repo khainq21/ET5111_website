@@ -21,6 +21,7 @@ class ManagePatient extends Component {
             isOpenRemedyModal: false,
             isOpenRejectModal: false,
             dataModal: {},
+            isLoading: false
         }
     }
 
@@ -90,17 +91,22 @@ class ManagePatient extends Component {
 
     closeRemedyModal = () => {
         this.setState({
-            isOpenRemedyModal: false
+            isOpenRemedyModal: false,
+            isLoading: false
         })
     }
 
     closeRejectModal = () => {
         this.setState({
-            isOpenRejectModal: false
+            isOpenRejectModal: false,
+            isLoading: false
         })
     }
 
     sendRemedy = async (dataChild) => {
+        this.setState({
+            isLoading: true
+        })
         let { dataModal } = this.state
         let res = await postSendRemedy({
             email: dataChild.email,
@@ -113,14 +119,23 @@ class ManagePatient extends Component {
         })
         if (res && res.errCode === 0) {
             toast.success("Xác nhận lịch khám thành công!")
+            this.setState({
+                isLoading: false
+            })
             this.closeRemedyModal()
             await this.getDataPatient()
         } else {
             toast.error('Something Error!')
+            this.setState({
+                isLoading: false
+            })
         }
     }
 
     sendRejection = async (dataChild) => {
+        this.setState({
+            isLoading: true
+        })
         let { dataModal } = this.state
         let res = await postSendReject({
             email: dataModal.email,
@@ -133,15 +148,21 @@ class ManagePatient extends Component {
         })
         if (res && res.errCode === 0) {
             toast.success("Xác nhận hủy lịch khám thành công!")
+            this.setState({
+                isLoading: false
+            })
             this.closeRejectModal()
             await this.getDataPatient()
         } else {
             toast.error('Something Error!')
+            this.setState({
+                isLoading: false
+            })
         }
     }
 
     render() {
-        let { dataPatient, isOpenRemedyModal, dataModal, isOpenRejectModal } = this.state
+        let { dataPatient, isOpenRemedyModal, dataModal, isOpenRejectModal, isLoading } = this.state
         let { language } = this.props
         return (
             <>
@@ -212,11 +233,13 @@ class ManagePatient extends Component {
                     dataModal={dataModal}
                     closeRemedyModal={this.closeRemedyModal}
                     sendRemedy={this.sendRemedy}
+                    isLoading={isLoading}
                 />
                 <RejectModal
                     isOpenModal={isOpenRejectModal}
                     closeRejectModal={this.closeRejectModal}
                     sendRejection={this.sendRejection}
+                    isLoading={isLoading}
                 />
             </>
         );

@@ -10,9 +10,12 @@ import { getAllDetailclinicById, getAllCodeService } from '../../../services/use
 import _ from 'lodash';
 import { LANGUAGES } from '../../../utils';
 import HomeFooter from '../../HomePage/HomeFooter';
+import { geocodeByAddress, getLatLng } from 'react-google-places-autocomplete';
+import GoogleMapReact from 'google-map-react';
 
 //chứa giao diện thông tin chi tiết phòng khám hiển thị phía bệnh nhân
 //tương tự các folder doctor, handbook, specialty, chứa giao diện của từng đối tượng phía bệnh nhân sử dụng
+const Position = () => <div className='highlight'> <i className="fas fa-hospital"></i></div>
 
 class DetailClinic extends Component {
 
@@ -21,7 +24,11 @@ class DetailClinic extends Component {
         this.state = {
             arrDoctorId: [],
             dataDetailClinic: {},
-            backgroundImage: ''
+            backgroundImage: '',
+            position: {
+                lat: null,
+                lng: null,
+            }
         }
     }
 
@@ -46,11 +53,13 @@ class DetailClinic extends Component {
                         })
                     }
                 }
-
+                this.getDetailLocation(res.data.address)
+                // this.getDetailLocation('số 1 Đại Cồ Việt')
                 this.setState({
                     dataDetailClinic: res.data,
                     arrDoctorId: arrDoctorId,
-                    backgroundImage: backgroundImg
+                    backgroundImage: backgroundImg,
+
                 })
             }
         }
@@ -60,12 +69,28 @@ class DetailClinic extends Component {
         if (this.props.language !== prevProps.language) {
 
         }
+        if (this.props.position !== prevProps.position) {
+            this.getDetailLocation(this.state.dataDetailClinic.address)
+        }
     }
 
+    getDetailLocation = async (address) => {
+        try {
+            let results = await geocodeByAddress(address)
+            let position = await getLatLng(results[0])
+            console.log('noi khai yeu em', position)
+            this.setState({
+                position: position
+            })
+        } catch (e) {
+            console.log(e)
+        }
+    }
 
     render() {
-        let { arrDoctorId, dataDetailClinic, backgroundImage } = this.state
+        let { arrDoctorId, dataDetailClinic, backgroundImage, position } = this.state
         let { language } = this.props
+        // console.log('check', position)
         return (
             <div className='detail-specialty-container'>
                 <HomeHeader />
@@ -80,6 +105,25 @@ class DetailClinic extends Component {
                             </>
                         }
                     </div >
+                    <div className='dataMap'>
+                        <div className='img-contact'>
+                        </div>
+                        <div className='map'>
+                            <GoogleMapReact
+                                bootstrapURLKeys={{ key: 'AIzaSyC9p0UHgpZ2lYW1vBn_pE8b03WtGceKV_A' }}
+                                defaultCenter={position}
+                                defaultZoom={16}
+                                center={position}
+                            >
+                                <Position className='highlight'
+                                    lat={position.lat}
+                                    lng={position.lng}
+                                >
+
+                                </Position>
+                            </GoogleMapReact>
+                        </div>
+                    </div>
                     {arrDoctorId && arrDoctorId.length > 0 &&
                         arrDoctorId.map((item, index) => {
                             return (

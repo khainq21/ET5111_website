@@ -6,6 +6,7 @@ import './RemedyModal.scss';
 import { toast } from 'react-toastify';
 import moment from 'moment/moment';
 import { CommonUtils } from "../../../utils";
+import Loading from '../../../components/Loading';
 
 class RemedyModal extends Component {
 
@@ -58,7 +59,7 @@ class RemedyModal extends Component {
 
     render() {
 
-        let { isOpenModal, closeRemedyModal, dataModal } = this.props
+        let { isOpenModal, closeRemedyModal, dataModal, isLoading } = this.props
 
         return (
             <div>
@@ -70,20 +71,24 @@ class RemedyModal extends Component {
                         <button type="button" className="close" aria-label="Close" onClick={closeRemedyModal}>
                             <span aria-hidden="true">×</span></button></div>
                     <ModalBody>
-                        <div className='row'>
-                            <div className='col-6 form-group'>
-                                <label>Email bệnh nhân</label>
-                                <input className='form-control' type='email' value={this.state.email}
-                                    onChange={(e) => this.handleOnChangeEmail(e)}
-                                ></input>
+                        {isLoading === false ?
+                            <div className='row'>
+                                <div className='col-6 form-group'>
+                                    <label>Email bệnh nhân</label>
+                                    <input className='form-control' type='email' value={this.state.email}
+                                        onChange={(e) => this.handleOnChangeEmail(e)}
+                                    ></input>
+                                </div>
+                                <div className='col-6 form-group'>
+                                    <label>Chọn đơn thuốc</label>
+                                    <input className='form-control-file'
+                                        onChange={(e) => this.handleOnChangeImage(e)}
+                                        type='file'></input>
+                                </div>
                             </div>
-                            <div className='col-6 form-group'>
-                                <label>Chọn đơn thuốc</label>
-                                <input className='form-control-file'
-                                    onChange={(e) => this.handleOnChangeImage(e)}
-                                    type='file'></input>
-                            </div>
-                        </div>
+                            :
+                            <Loading />
+                        }
                     </ModalBody>
                     <ModalFooter>
                         <Button color="primary" onClick={() => this.handleSendRemedy()}>Gửi</Button>{' '}

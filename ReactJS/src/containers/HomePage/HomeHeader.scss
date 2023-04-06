@@ -151,13 +151,14 @@
         }
 
         .search {
-            width          : fit-content;
+            width          : 500px;
             display        : flex;
             justify-content: center;
             align-items    : center;
             margin         : auto;
-            border-radius  : 25px;
-            background     : #17a2b8;
+            border-radius  : 10px;
+            background     : #fff;
+            border         : 1px solid;
 
             i {
                 margin: 0 5px;
@@ -173,7 +174,11 @@
             }
 
             .placeholder {
-                color: white;
+                color: black;
+            }
+
+            .slect {
+                width: 500px;
             }
         }
 

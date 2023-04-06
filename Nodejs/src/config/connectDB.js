@@ -12,7 +12,7 @@ const sequelize = new Sequelize('khaihocit', 'root', null, {
 let connectDB = async () => {
     try {
         await sequelize.authenticate();
-        console.log('Connection has been established successfully.');
+        console.log('Successfully connected to Database');
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }

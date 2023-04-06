@@ -7,9 +7,56 @@ import { FormattedMessage } from 'react-intl';
 import { LANGUAGES } from '../../utils';
 import { changeLanguageApp } from '../../store/actions';
 import { withRouter } from 'react-router';
+import Popup from 'reactjs-popup';
+import Select from 'react-select';
+import { getAllSpecialties } from '../../services/userService';
+
 
 class HomeHeader extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            dataSpecialty: [],
+        }
+    }
+    async componentDidMount() {
+        let res = await getAllSpecialties()
+        if (res && res.errCode === 0) {
+            let dataSelect = this.builDataInputSelect(res.data ? res.data : [])
+            this.setState({
+                dataSpecialty: dataSelect
+            })
+        }
+    }
 
+    // componentDidUpdate(prevProps, prevState, snapshot) {
+    //     if (prevProps.dataSpecialty !== this.props.dataSpecialty) {
+    //         let dataSelect = this.builDataInputSelect(this.props.dataSpecialty)
+    //         this.setState({
+    //             dataSpecialty: dataSelect
+    //         })
+    //     }
+    // }
+
+    builDataInputSelect = (inputData) => {
+        let result = []
+        if (inputData && inputData.length > 0) {
+            inputData.map((item, index) => {
+                let object = {}
+                object.label = item.name
+                object.value = item.id
+                result.push(object)
+            })
+        }
+        return result
+    }
+
+    handleChangeSelect = async (selectedOption) => {
+        if (this.props.history) {
+            this.props.history.push(`/detail-specialty/${selectedOption.value}`)
+        }
+
+    };
 
     changeLanguage = (language) => {
         this.props.changeLanguageAppRedux(language)
@@ -19,7 +66,7 @@ class HomeHeader extends Component {
 
     returnToHome = () => {
         if (this.props.history) {
-            this.props.history.push(`/home`)
+            this.props.history.push(`/homepage`)
         }
     }
 
@@ -35,7 +82,7 @@ class HomeHeader extends Component {
                             <div className='name-web'>make your life</div>
                         </div>
                         <div className='center-content'>
-                            <div className='child-content'>
+                            {/* <div className='child-content'>
                                 <div><b><FormattedMessage id="homeheader.speciality" /></b></div>
 
                                 <div className='subs-title'><FormattedMessage id="homeheader.searchdoctor" /></div>
@@ -54,11 +101,30 @@ class HomeHeader extends Component {
                             </div>
                             <div className='child-content'>
 
-                            </div>
+                            </div> */}
                         </div>
                         <div className='right-content'>
-                            <div className='support'><i className="fas fa-question-circle"></i>
-                                <FormattedMessage id="homeheader.support" /></div>
+                            <div className='support'>
+                                <Popup contentStyle={{
+                                    width: "180px", height: '150px', background: 'white',
+                                    borderRadius: '10px', padding: '10px', fontSize: '15px', color: 'hotpink', fontStyle: 'initial'
+                                }}
+                                    trigger={open => (
+                                        <div>
+                                            <i className="fas fa-question-circle"></i>
+                                            <FormattedMessage id="homeheader.support" />
+                                        </div>
+                                    )}
+                                    on={['hover', 'focus']}
+                                    position="bottom center"
+                                    closeOnDocumentClick
+                                >
+                                    <div>Mọi thắc mắc xin liên hệ đường dây nóng</div>
+                                    <div>Hotline: 19001009 </div>
+                                    <div>Trung tâm chăm sóc khách hàng:</div>
+                                    <div>Đ/c: số 1 Đại Cồ Việt</div>
+                                </Popup>
+                            </div>
                             <div className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'}><span onClick={() => this.changeLanguage(LANGUAGES.VI)}>VN</span></div>
                             <div className={language === LANGUAGES.EN ? 'language-en active' : 'language-en'}><span onClick={() => this.changeLanguage(LANGUAGES.EN)}>EN</span></div>
                         </div>
@@ -71,7 +137,16 @@ class HomeHeader extends Component {
                             <div className='tiltle2'><FormattedMessage id="banner.title2" /></div>
                             <div className='search'>
                                 <i className="fas fa-search"></i>
-                                <input className='placeholder' type='text' placeholder='Tìm kiếm chuyên khoa phù hợp'></input>
+                                {/* <input className='placeholder' type='text' placeholder='Tìm kiếm chuyên khoa phù hợp'>
+
+                                </input> */}
+                                <Select
+                                    className='slect'
+                                    // value={this.state.dataSpecialty}
+                                    onChange={this.handleChangeSelect}
+                                    options={this.state.dataSpecialty}
+                                    placeholder={'Tìm kiếm chuyên khoa phù hợp'}
+                                />
                             </div>
                         </div>
                         <div className='content-down'>
@@ -120,7 +195,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        changeLanguageAppRedux: (language) => dispatch(changeLanguageApp(language))
+        changeLanguageAppRedux: (language) => dispatch(changeLanguageApp(language)),
     };
 };
 

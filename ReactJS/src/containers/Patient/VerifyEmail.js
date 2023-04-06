@@ -71,6 +71,7 @@ class VerifyEmail extends Component {
                                 </div>}
                         </div>
                     }
+                    <div className='background_email'><div className='background_email_img'></div></div>
                 </div>
                 {/* <HomeFooter /> */}
             </>

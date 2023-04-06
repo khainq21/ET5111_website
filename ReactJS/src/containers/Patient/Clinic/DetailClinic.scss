@@ -37,6 +37,34 @@
         background    : #eee;
         display       : flex;
         flex-direction: column;
+
+        .dataMap {
+            height : 230px;
+            display: flex;
+
+            .img-contact {
+                height             : 100%;
+                width              : 40%;
+                background-image   : url(../../../assets/images/contactUs.jpg);
+                background-size    : cover;
+                background-repeat  : no-repeat;
+                background-position: center;
+            }
+
+            .map {
+                height    : 100%;
+                width     : 60%;
+                box-shadow: 0 1px 6px #20212447;
+
+
+                .highlight {
+                    i {
+                        font-size: 30px;
+                        color    : red;
+                    }
+                }
+            }
+        }
     }
 
     .search-sp-doctor {

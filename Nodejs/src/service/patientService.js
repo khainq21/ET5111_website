@@ -60,7 +60,7 @@ let postBookAppointment = (data) => {
                             statusId: {
                                 [Op.or]: ['S1', 'S2'],
                             },
-                            timeType: data.timeType
+                            date: data.date
                         },
                         //not found -> create
                         defaults: {

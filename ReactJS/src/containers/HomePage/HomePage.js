@@ -30,15 +30,15 @@ class HomePage extends Component {
         return (
             <div>
                 <HomeHeader isShowBanner={true} />
+                <OutStandingDoctor
+                    settings={settings} />
                 <Specialty
                     settings={settings} />
                 <MedicalFacility
                     settings={settings} />
-                <OutStandingDoctor
-                    settings={settings} />
+                <Information />
                 <HandBook
                     settings={settings} />
-                <Information />
                 <HomeFooter />
 
             </div>

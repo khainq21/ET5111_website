@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { FormattedMessage } from 'react-intl';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
+import Loading from '../../../components/Loading';
 
 
 class RejectModal extends Component {
@@ -37,7 +38,7 @@ class RejectModal extends Component {
 
     render() {
 
-        let { isOpenModal, closeRejectModal, } = this.props
+        let { isOpenModal, closeRejectModal, isLoading } = this.props
 
         return (
             <div>
@@ -49,14 +50,18 @@ class RejectModal extends Component {
                         <button type="button" className="close" aria-label="Close" onClick={closeRejectModal}>
                             <span aria-hidden="true">×</span></button></div>
                     <ModalBody>
-                        <div className='row'>
-                            <div className='col-12 form-group'>
-                                <label>Lý do từ chối lịch khám</label>
-                                <input className='form-control' type='text' value={this.state.reason}
-                                    onChange={(e) => this.handleOnChangeReason(e)}
-                                ></input>
+                        {isLoading === false ?
+                            <div className='row'>
+                                <div className='col-12 form-group'>
+                                    <label>Lý do từ chối lịch khám</label>
+                                    <input className='form-control' type='text' value={this.state.reason}
+                                        onChange={(e) => this.handleOnChangeReason(e)}
+                                    ></input>
+                                </div>
                             </div>
-                        </div>
+                            :
+                            <Loading />
+                        }
                     </ModalBody>
                     <ModalFooter>
                         <Button color="primary" onClick={() => this.handleSendRejection()}>Gửi</Button>{' '}

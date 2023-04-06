@@ -1,6 +1,32 @@
 video {
     width        : 100%;
     object-fit   : cover;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     border-radius: 20px;
+}
+
+.content_info {
+    display: flex;
+    height : 100%;
+
+    .content_left {
+        width              : 40%;
+        font-size          : 15px;
+        font-weight        : 600;
+        padding-top        : 130px;
+        padding-left       : 180px;
+        background-image   : url(../../../assets/images/callab.jpg);
+        background-size    : cover;
+        background-repeat  : no-repeat;
+        background-position: right;
+        border-radius      : 15px;
+    }
+
+    .content_right {
+        width: 60%;
+
+        .map {
+            height: 300px;
+        }
+    }
 }

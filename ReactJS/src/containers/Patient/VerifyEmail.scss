@@ -1,4 +1,7 @@
 .verify-email-container {
+    display       : flex;
+    flex-direction: column;
+
     .infor-booking {
         font-size     : 17px;
         font-weight   : 600;
@@ -6,5 +9,22 @@
         text-align    : center;
         text-transform: uppercase;
         color         : #67d0f3;
+    }
+
+    .background_email {
+        display        : flex;
+        justify-content: center;
+        padding-top    : 20px;
+
+        .background_email_img {
+            height             : 400px;
+            width              : 400px;
+            background-image   : url(../../assets/images/email_img.jpg);
+            background-size    : cover;
+            background-repeat  : no-repeat;
+            background-position: center;
+            border-radius      : 10px;
+        }
+
     }
 }

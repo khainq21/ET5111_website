@@ -6,8 +6,9 @@ class Home extends Component {
 
     render() {
         const { isLoggedIn } = this.props;
+        //start : loggin = false ---- when map redux login = true
         //check login
-        let linkToRedirect = isLoggedIn ? '/system/user-manage' : '/home';
+        let linkToRedirect = isLoggedIn ? '/system/user-manage' : '/homepage';
         console.log('check link:', linkToRedirect, isLoggedIn)
         return (
             <Redirect to={linkToRedirect} />
